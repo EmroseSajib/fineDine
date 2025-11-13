@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { Facebook, Instagram, Twitter } from "lucide-react"
+import { Facebook, Instagram, Twitter } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -10,7 +10,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <h3 className="font-serif text-2xl text-accent mb-3">Aroma Amoris</h3>
+            {/* <h3 className="font-serif text-2xl text-accent mb-3">Aroma Amoris</h3> */}
+            <img src="/logoAroma.png" alt="logo" />
             <p className="text-foreground/70 text-sm">
               Where Taste Meets Artistry. Experience fine dining at its finest.
             </p>
@@ -21,22 +22,34 @@ export default function Footer() {
             <h4 className="font-bold text-foreground mb-3">Navigation</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="#about" className="text-foreground/70 hover:text-accent transition-colors">
+                <Link
+                  href="#about"
+                  className="text-foreground/70 hover:text-accent transition-colors"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="#menu" className="text-foreground/70 hover:text-accent transition-colors">
+                <Link
+                  href="#menu"
+                  className="text-foreground/70 hover:text-accent transition-colors"
+                >
                   Menu
                 </Link>
               </li>
               <li>
-                <Link href="#gallery" className="text-foreground/70 hover:text-accent transition-colors">
+                <Link
+                  href="#gallery"
+                  className="text-foreground/70 hover:text-accent transition-colors"
+                >
                   Gallery
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="text-foreground/70 hover:text-accent transition-colors">
+                <Link
+                  href="#contact"
+                  className="text-foreground/70 hover:text-accent transition-colors"
+                >
                   Contact
                 </Link>
               </li>
@@ -58,13 +71,22 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-3">Follow Us</h4>
             <div className="flex gap-4">
-              <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+              <a
+                href="#"
+                className="text-foreground/70 hover:text-accent transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+              <a
+                href="#"
+                className="text-foreground/70 hover:text-accent transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+              <a
+                href="#"
+                className="text-foreground/70 hover:text-accent transition-colors"
+              >
                 <Twitter className="w-5 h-5" />
               </a>
             </div>
@@ -77,5 +99,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

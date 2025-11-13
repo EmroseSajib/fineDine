@@ -24,7 +24,7 @@ export default function Navigation() {
             {/* <div className="text-2xl font-serif font-bold text-accent">
               Aroma Amoris
             </div> */}
-            <img src="/logoAroma.png" alt="" />
+            <img src="/logoAroma.png" alt="logo" />
           </Link>
 
           {/* Desktop Navigation */}
