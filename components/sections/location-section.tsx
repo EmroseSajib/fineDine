@@ -2,7 +2,7 @@
 
 export default function LocationSection() {
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#475F84]">
       <div className="max-w-6xl mx-auto">
         <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">
           Location & Contact

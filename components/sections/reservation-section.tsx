@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
+import { useState } from "react";
 
 export default function ReservationSection() {
   const [formData, setFormData] = useState({
@@ -11,38 +11,52 @@ export default function ReservationSection() {
     date: "",
     time: "",
     guests: "2",
-  })
-  const [submitted, setSubmitted] = useState(false)
+  });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSubmitted(true)
+    e.preventDefault();
+    setSubmitted(true);
     setTimeout(() => {
-      setSubmitted(false)
-      setFormData({ name: "", email: "", date: "", time: "", guests: "2" })
-    }, 3000)
-  }
+      setSubmitted(false);
+      setFormData({ name: "", email: "", date: "", time: "", guests: "2" });
+    }, 3000);
+  };
 
   return (
-    <section id="reservation" className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/50">
+    <section
+      id="reservation"
+      className="py-20 px-4 sm:px-6 lg:px-8 bg-[#475F84]"
+    >
       <div className="max-w-2xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-4">Reserve Your Table</h2>
-        <p className="text-center text-foreground/70 mb-12">Join us for an unforgettable culinary experience</p>
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-4">
+          Reserve Your Table
+        </h2>
+        <p className="text-center text-foreground/70 mb-12">
+          Join us for an unforgettable culinary experience
+        </p>
 
         {submitted ? (
           <div className="bg-accent text-accent-foreground p-8 rounded text-center animate-slide-up">
             <h3 className="font-serif text-2xl font-bold mb-2">Thank You!</h3>
-            <p>Your reservation has been received. We look forward to welcoming you.</p>
+            <p>
+              Your reservation has been received. We look forward to welcoming
+              you.
+            </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-foreground font-semibold mb-2">Name</label>
+              <label className="block text-foreground font-semibold mb-2">
+                Name
+              </label>
               <input
                 type="text"
                 name="name"
@@ -55,7 +69,9 @@ export default function ReservationSection() {
             </div>
 
             <div>
-              <label className="block text-foreground font-semibold mb-2">Email</label>
+              <label className="block text-foreground font-semibold mb-2">
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -69,7 +85,9 @@ export default function ReservationSection() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-foreground font-semibold mb-2">Date</label>
+                <label className="block text-foreground font-semibold mb-2">
+                  Date
+                </label>
                 <input
                   type="date"
                   name="date"
@@ -80,7 +98,9 @@ export default function ReservationSection() {
                 />
               </div>
               <div>
-                <label className="block text-foreground font-semibold mb-2">Time</label>
+                <label className="block text-foreground font-semibold mb-2">
+                  Time
+                </label>
                 <input
                   type="time"
                   name="time"
@@ -93,7 +113,9 @@ export default function ReservationSection() {
             </div>
 
             <div>
-              <label className="block text-foreground font-semibold mb-2">Number of Guests</label>
+              <label className="block text-foreground font-semibold mb-2">
+                Number of Guests
+              </label>
               <select
                 name="guests"
                 value={formData.guests}
@@ -118,5 +140,5 @@ export default function ReservationSection() {
         )}
       </div>
     </section>
-  )
+  );
 }

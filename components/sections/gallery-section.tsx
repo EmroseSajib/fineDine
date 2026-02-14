@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { X } from "lucide-react"
+import { X } from "lucide-react";
+import { useState } from "react";
 
 const galleryImages = [
   {
@@ -28,15 +28,17 @@ const galleryImages = [
     src: "/fine-dining-private-dining-room.jpg",
     alt: "Dining Room",
   },
-]
+];
 
 export default function GallerySection() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="gallery" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#3b5479]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">Gallery</h2>
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">
+          Gallery
+        </h2>
 
         {/* Masonry Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-max">
@@ -67,8 +69,15 @@ export default function GallerySection() {
             className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
-            <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-              <img src={selectedImage || "/placeholder.svg"} alt="Gallery" className="w-full h-auto rounded" />
+            <div
+              className="relative max-w-4xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={selectedImage || "/placeholder.svg"}
+                alt="Gallery"
+                className="w-full h-auto rounded"
+              />
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-10 right-0 text-foreground hover:text-accent transition-colors"
@@ -80,5 +89,5 @@ export default function GallerySection() {
         )}
       </div>
     </section>
-  )
+  );
 }

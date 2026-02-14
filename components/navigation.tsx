@@ -8,6 +8,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
+    { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Menu", href: "#menu" },
     { label: "Specials", href: "#specials" },
@@ -16,7 +17,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
+    <nav className="fixed top-0 w-full bg-[#13283F] backdrop-blur-sm z-50 border-b border-border ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
@@ -33,7 +34,7 @@ export default function Navigation() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm uppercase tracking-wider text-foreground/80 hover:text-accent transition-colors duration-300"
+                className="text-sm uppercase tracking-wider text-foreground/90 hover:text-accent transition-colors duration-300"
               >
                 {link.label}
               </Link>

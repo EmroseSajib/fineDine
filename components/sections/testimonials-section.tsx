@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   {
-    quote: "An absolutely magical evening. Every course was a masterpiece, and the service was impeccable.",
+    quote:
+      "An absolutely magical evening. Every course was a masterpiece, and the service was impeccable.",
     author: "Sarah Mitchell",
     rating: 5,
   },
@@ -16,43 +17,54 @@ const testimonials = [
     rating: 5,
   },
   {
-    quote: "Aroma Amoris has set a new standard for fine dining. Highly recommend for special occasions.",
+    quote:
+      "Aroma Amoris has set a new standard for fine dining. Highly recommend for special occasions.",
     author: "Elena Rodriguez",
     rating: 5,
   },
   {
-    quote: "A culinary journey like no other. Every detail was thoughtfully crafted. Simply unforgettable.",
+    quote:
+      "A culinary journey like no other. Every detail was thoughtfully crafted. Simply unforgettable.",
     author: "Michael Chen",
     rating: 5,
   },
-]
+];
 
 export default function TestimonialsSection() {
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % testimonials.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrent((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length)
-  const prev = () => setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length);
+  const prev = () =>
+    setCurrent(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length,
+    );
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#3b5479]">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">Guest Reviews</h2>
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">
+          Guest Reviews
+        </h2>
 
         <div className="relative">
           {/* Testimonial Card */}
           <div className="bg-secondary/50 p-8 md:p-12 rounded">
             <div className="text-2xl md:text-3xl text-accent mb-6">"</div>
-            <p className="text-foreground/80 text-lg mb-6 italic leading-relaxed">{testimonials[current].quote}</p>
+            <p className="text-foreground/80 text-lg mb-6 italic leading-relaxed">
+              {testimonials[current].quote}
+            </p>
             <div className="flex justify-between items-end">
               <div>
-                <p className="text-accent font-semibold">{testimonials[current].author}</p>
+                <p className="text-accent font-semibold">
+                  {testimonials[current].author}
+                </p>
                 <div className="flex gap-1 mt-2">
                   {Array(testimonials[current].rating)
                     .fill(0)
@@ -95,5 +107,5 @@ export default function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

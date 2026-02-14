@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 type MenuItem = {
-  name: string
-  price: string
-  description: string
-}
+  name: string;
+  price: string;
+  description: string;
+};
 
 type MenuCategory = {
-  name: string
-  items: MenuItem[]
-}
+  name: string;
+  items: MenuItem[];
+};
 
 const menuData: MenuCategory[] = [
   {
@@ -74,15 +74,17 @@ const menuData: MenuCategory[] = [
       },
     ],
   },
-]
+];
 
 export default function MenuSection() {
-  const [activeTab, setActiveTab] = useState(0)
+  const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="menu" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+    <section id="menu" className="py-20 px-4 sm:px-6 lg:px-8 bg-[#3b5479]">
       <div className="max-w-6xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">Our Menu</h2>
+        <h2 className="font-serif text-4xl md:text-5xl font-bold text-accent text-center mb-12">
+          Our Menu
+        </h2>
 
         {/* Tabs */}
         <div className="flex justify-center gap-4 mb-12 flex-wrap">
@@ -109,14 +111,18 @@ export default function MenuSection() {
               className="bg-secondary/50 p-6 rounded hover:bg-secondary/80 transition-all duration-300 transform hover:scale-105 cursor-pointer"
             >
               <div className="flex justify-between items-start mb-3">
-                <h3 className="font-serif text-xl text-foreground">{item.name}</h3>
+                <h3 className="font-serif text-xl text-foreground">
+                  {item.name}
+                </h3>
                 <span className="text-accent font-bold ml-2">{item.price}</span>
               </div>
-              <p className="text-foreground/70 text-sm leading-relaxed">{item.description}</p>
+              <p className="text-foreground/70 text-sm leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
