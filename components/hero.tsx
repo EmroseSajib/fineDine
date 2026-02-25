@@ -122,9 +122,9 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
         <Image
           src="/images/logo.png"
           alt="Aroma Amoris Logo"
-          width={120}
-          height={120}
-          className="h-20 w-auto object-contain "
+          width={150}
+          height={150}
+          className="h-28 w-auto object-contain "
           priority
         />
         <div
@@ -134,14 +134,17 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
         >
           {/* Restaurant Name */}
           <h1
-            className="font-serif text-6xl md:text-7xl lg:text-8xl font-bold text-foreground mb-6 animate-fade-in"
+            className="font-tangerine text-6xl md:text-7xl lg:text-9xl font-bold text-foreground  animate-fade-in tracking-wider "
             style={{ transitionDelay: "200ms" }}
           >
             Aroma Amoris
           </h1>
 
           {/* Tagline */}
-          <p className="text-xl md:text-2xl text-primary mb-8 font-light animate-slide-up">
+          <p
+            className="text-xl md:text-4xl text-primary mb-8 font-light animate-slide-up tracking-wider font-tangerine
+"
+          >
             {/* Where Taste Meets Artistry */}
             {t("hero.subtitle")}
           </p>
@@ -159,7 +162,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
               const section = document.getElementById("reservation");
               section?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="px-8 py-3 bg-primary text-accent-foreground font-semibold rounded hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 animate-slide-up"
+            className="px-8 py-3 bg-primary text-foreground font-semibold rounded hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 animate-slide-up "
             style={{ animationDelay: "0.4s" }}
           >
             Book a Table

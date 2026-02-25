@@ -37,7 +37,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={` fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled ? "glass-dark py-3" : "bg-transparent py-5"
       }`}
     >
@@ -60,7 +60,7 @@ export function Navbar() {
             <a
               key={link.key}
               href={link.href}
-              className="text-sm font-medium tracking-wide text-white transition-colors duration-300 hover:text-[#FFD700]"
+              className="font-tangerine text-2xl font-medium tracking-wide text-white transition-colors duration-300 hover:text-[#FFD700]"
             >
               {t(`nav.${link.key}`)}
             </a>

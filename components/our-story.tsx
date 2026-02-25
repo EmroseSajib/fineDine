@@ -17,7 +17,7 @@ export function OurStory() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
           }`}
         >
-          <span className="text-xs font-medium tracking-[0.3em] uppercase text-primary">
+          <span className="text-xs font-medium tracking-[0.3em] uppercase text-foreground">
             {t("story.label")}
           </span>
           <h2 className="mt-4 font-serif text-4xl font-bold text-[#ffbf00be] md:text-5xl lg:text-6xl">

@@ -134,10 +134,25 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
+
         <div className="mt-12 border-t border-border/50 pt-8 text-center">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Aroma Amoris.{" "}
-            {t("footer.copyright")}
+          <p className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+            &copy; {new Date().getFullYear()} {t("footer.copyright")}{" "}
+            <a
+              href="https://taxis.it.com/" // 🔁 your IT website
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary hover:text-amber-200 transition-colors"
+            >
+              <Image
+                src="/images/taxislogo.png"
+                alt="Aroma Amoris Logo"
+                width={40}
+                height={40}
+                className="h-10 w-auto object-contain pb-3 "
+                priority
+              />
+            </a>
           </p>
         </div>
       </div>

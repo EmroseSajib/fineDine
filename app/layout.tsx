@@ -1,7 +1,7 @@
 import { LanguageProvider } from "@/context/language-context";
 import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Playfair_Display, Tangerine } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -15,6 +15,12 @@ const inter = Inter({
   variable: "--font-sans",
   display: "swap",
 });
+const tangerine = Tangerine({
+  subsets: ["latin"],
+  weight: ["400", "700"], // IMPORTANT (Tangerine needs weight)
+  variable: "--font-tangerine",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Aroma Amoris | Fine Dining Restaurant",
@@ -49,7 +55,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="nl" className={`${playfair.variable} ${inter.variable}`}>
+    <html
+      lang="nl"
+      className={`${playfair.variable} ${inter.variable} ${tangerine.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
