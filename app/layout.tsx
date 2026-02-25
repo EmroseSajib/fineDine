@@ -1,50 +1,87 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Geist, Geist_Mono, Playfair_Display } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import { LanguageProvider } from "@/context/language-context";
+import { Analytics } from "@vercel/analytics/next";
+import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
+import "./globals.css";
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
-const _playfair = Playfair_Display({
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif",
-})
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Aroma Amoris - Fine Dining Restaurant",
-  description: "Where Taste Meets Artistry. An exquisite fine dining experience.",
-  generator: "v0.app",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+  title: "Aroma Amoris | Fine Dining Restaurant",
+  description:
+    "Ervaar de ultieme fine dining bij Aroma Amoris in Amsterdam. Seizoensgebonden ingrediënten, vakmanschap en een onwankelbare toewijding aan perfectie.",
+  keywords: [
+    "fine dining",
+    "restaurant",
+    "Amsterdam",
+    "Nederland",
+    "luxury dining",
+    "Aroma Amoris",
+  ],
+  openGraph: {
+    title: "Aroma Amoris | Fine Dining Restaurant",
+    description:
+      "Fine dining in het hart van Nederland. Een unieke culinaire ervaring.",
+    type: "website",
+    locale: "nl_NL",
+    alternateLocale: "en_US",
+    siteName: "Aroma Amoris",
   },
-}
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`font-sans antialiased`}>
-        {children}
+    <html lang="nl" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Restaurant",
+              name: "Aroma Amoris",
+              image: "/images/hero-poster.jpg",
+              address: {
+                "@type": "PostalAddress",
+                streetAddress: "Keizersgracht 123",
+                addressLocality: "Amsterdam",
+                postalCode: "1015 CJ",
+                addressCountry: "NL",
+              },
+              telephone: "+31201234567",
+              servesCuisine: "French, European, Fine Dining",
+              priceRange: "$$$$",
+              openingHours: [
+                "Mo-Th 17:00-23:00",
+                "Fr-Sa 17:00-00:00",
+                "Su 12:00-22:00",
+              ],
+            }),
+          }}
+        />
+      </head>
+      <body className="font-sans antialiased">
+        <LanguageProvider>{children}</LanguageProvider>
         <Analytics />
       </body>
     </html>
-  )
+  );
 }

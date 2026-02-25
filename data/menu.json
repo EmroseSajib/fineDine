@@ -1,0 +1,123 @@
+{
+  "starters": [
+    {
+      "id": "s1",
+      "name": { "nl": "Tartaar van Tonijn", "en": "Tuna Tartare" },
+      "description": { "nl": "Verse tonijn, avocado, sesam-sojadressing, crispy wontonchips", "en": "Fresh tuna, avocado, sesame soy dressing, crispy wonton chips" },
+      "price": "€ 18"
+    },
+    {
+      "id": "s2",
+      "name": { "nl": "Ganzenlever Terrine", "en": "Foie Gras Terrine" },
+      "description": { "nl": "Geperste ganzenlever, brioche, vijgencompote, portreductie", "en": "Pressed foie gras, brioche, fig compote, port reduction" },
+      "price": "€ 24"
+    },
+    {
+      "id": "s3",
+      "name": { "nl": "Coquilles St. Jacques", "en": "Scallops St. Jacques" },
+      "description": { "nl": "Gebakken coquilles, bloemkoolpuree, truffel, hazelnoot", "en": "Pan-seared scallops, cauliflower purée, truffle, hazelnut" },
+      "price": "€ 22"
+    },
+    {
+      "id": "s4",
+      "name": { "nl": "Carpaccio van Wagyu", "en": "Wagyu Carpaccio" },
+      "description": { "nl": "Dun gesneden Wagyu, rucola, parmezaan, truffelaioli", "en": "Thinly sliced Wagyu, arugula, parmesan, truffle aioli" },
+      "price": "€ 26"
+    }
+  ],
+  "mains": [
+    {
+      "id": "m1",
+      "name": { "nl": "Ossenhaas Rossini", "en": "Beef Tenderloin Rossini" },
+      "description": { "nl": "Ossenhaas, ganzenlever, truffel, madeirasaus, aardappelgratin", "en": "Beef tenderloin, foie gras, truffle, Madeira sauce, potato gratin" },
+      "price": "€ 48"
+    },
+    {
+      "id": "m2",
+      "name": { "nl": "Kreeft Thermidor", "en": "Lobster Thermidor" },
+      "description": { "nl": "Hele kreeft, gruyère, cognac-roomsaus, seizoensgroenten", "en": "Whole lobster, gruyère, cognac cream sauce, seasonal vegetables" },
+      "price": "€ 56"
+    },
+    {
+      "id": "m3",
+      "name": { "nl": "Eend à l'Orange", "en": "Duck à l'Orange" },
+      "description": { "nl": "Eendenborst, sinaasappelglazuur, puree van zoete aardappel, paksoi", "en": "Duck breast, orange glaze, sweet potato purée, bok choy" },
+      "price": "€ 42"
+    },
+    {
+      "id": "m4",
+      "name": { "nl": "Zeebaars en Crème", "en": "Sea Bass en Crème" },
+      "description": { "nl": "Gegrilde zeebaars, champagne-beurre blanc, asperges, kaviaar", "en": "Grilled sea bass, champagne beurre blanc, asparagus, caviar" },
+      "price": "€ 44"
+    }
+  ],
+  "desserts": [
+    {
+      "id": "d1",
+      "name": { "nl": "Chocolade Soufflé", "en": "Chocolate Soufflé" },
+      "description": { "nl": "Warme chocoladesoufflé, vanille-ijs, goudvlokken", "en": "Warm chocolate soufflé, vanilla ice cream, gold flakes" },
+      "price": "€ 16"
+    },
+    {
+      "id": "d2",
+      "name": { "nl": "Crème Brûlée", "en": "Crème Brûlée" },
+      "description": { "nl": "Klassieke crème brûlée met Madagaskar-vanille", "en": "Classic crème brûlée with Madagascar vanilla" },
+      "price": "€ 14"
+    },
+    {
+      "id": "d3",
+      "name": { "nl": "Tarte Tatin", "en": "Tarte Tatin" },
+      "description": { "nl": "Omgekeerde appeltaart, crème fraîche, karamel", "en": "Upside-down apple tart, crème fraîche, caramel" },
+      "price": "€ 15"
+    }
+  ],
+  "drinks": [
+    {
+      "id": "dr1",
+      "name": { "nl": "Huiswijn Wit", "en": "House White Wine" },
+      "description": { "nl": "Chablis Premier Cru, Bourgogne", "en": "Chablis Premier Cru, Burgundy" },
+      "price": "€ 12"
+    },
+    {
+      "id": "dr2",
+      "name": { "nl": "Huiswijn Rood", "en": "House Red Wine" },
+      "description": { "nl": "Château Margaux, Bordeaux", "en": "Château Margaux, Bordeaux" },
+      "price": "€ 14"
+    },
+    {
+      "id": "dr3",
+      "name": { "nl": "Champagne", "en": "Champagne" },
+      "description": { "nl": "Dom Pérignon Vintage, per glas", "en": "Dom Pérignon Vintage, by the glass" },
+      "price": "€ 28"
+    },
+    {
+      "id": "dr4",
+      "name": { "nl": "Signature Cocktail", "en": "Signature Cocktail" },
+      "description": { "nl": "Aroma Amoris Special - champagne, lychee, rozenwater, goudvlokken", "en": "Aroma Amoris Special - champagne, lychee, rosewater, gold flakes" },
+      "price": "€ 18"
+    }
+  ],
+  "chefSpecials": [
+    {
+      "id": "cs1",
+      "name": { "nl": "Kreeft met Truffelboter", "en": "Lobster with Truffle Butter" },
+      "description": { "nl": "Verse Bretonse kreeft, zwarte truffelboter, seizoensgroenten, champagne-jus", "en": "Fresh Breton lobster, black truffle butter, seasonal vegetables, champagne jus" },
+      "price": "€ 68",
+      "image": "/images/chef-special-1.jpg"
+    },
+    {
+      "id": "cs2",
+      "name": { "nl": "Wagyu A5 Tartaar", "en": "Wagyu A5 Tartare" },
+      "description": { "nl": "Japanse A5 Wagyu, kwartelei, Oscietra kaviaar, gouden toast", "en": "Japanese A5 Wagyu, quail egg, Oscietra caviar, golden toast" },
+      "price": "€ 72",
+      "image": "/images/chef-special-2.jpg"
+    },
+    {
+      "id": "cs3",
+      "name": { "nl": "Gouden Chocoladebol", "en": "Golden Chocolate Sphere" },
+      "description": { "nl": "Valrhona chocoladebol, warme karamelsaus, 24-karaats bladgoud, vanille-ijs", "en": "Valrhona chocolate sphere, warm caramel sauce, 24-karat gold leaf, vanilla ice cream" },
+      "price": "€ 32",
+      "image": "/images/chef-special-3.jpg"
+    }
+  ]
+}

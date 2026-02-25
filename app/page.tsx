@@ -1,36 +1,38 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Navigation from "@/components/navigation"
-import HeroSection from "@/components/sections/hero-section"
-import AboutSection from "@/components/sections/about-section"
-import MenuSection from "@/components/sections/menu-section"
-import ChefSpecialsSection from "@/components/sections/chef-specials-section"
-import GallerySection from "@/components/sections/gallery-section"
-import ReservationSection from "@/components/sections/reservation-section"
-import TestimonialsSection from "@/components/sections/testimonials-section"
-import LocationSection from "@/components/sections/location-section"
-import Footer from "@/components/footer"
+import { ChefSpecials } from "@/components/chef-specials";
+import { Footer } from "@/components/footer";
+import { Gallery } from "@/components/gallery";
+import Hero from "@/components/hero";
+import { Location } from "@/components/location";
+import { MenuSection } from "@/components/menu-section";
+import { Navbar } from "@/components/navbar";
+import { OurStory } from "@/components/our-story";
+import { Reservation } from "@/components/reservation";
+import { Reviews } from "@/components/reviews";
+import { WhatsAppButton } from "@/components/whatsapp-button";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   return (
-    <main className="bg-background text-foreground">
-      <Navigation />
-      <HeroSection isLoaded={isLoaded} />
-      <AboutSection />
+    <main>
+      <Navbar />
+      <Hero isLoaded={isLoaded} />
+      <OurStory />
       <MenuSection />
-      <ChefSpecialsSection />
-      <GallerySection />
-      <ReservationSection />
-      <TestimonialsSection />
-      <LocationSection />
+      <ChefSpecials />
+      <Gallery />
+      <Reservation />
+      <Reviews />
+      <Location />
       <Footer />
+      <WhatsAppButton />
     </main>
-  )
+  );
 }

@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Sophie van den Berg",
+    "rating": 5,
+    "text": {
+      "nl": "Een onvergetelijke avond. De sfeer, het eten, de service - alles was perfect. De ossenhaas Rossini was een meesterwerk.",
+      "en": "An unforgettable evening. The atmosphere, the food, the service - everything was perfect. The beef tenderloin Rossini was a masterpiece."
+    }
+  },
+  {
+    "id": 2,
+    "name": "James & Emily Thompson",
+    "rating": 5,
+    "text": {
+      "nl": "We kwamen hier voor onze trouwdag en het was magisch. De chef's specials zijn werkelijk buitengewoon.",
+      "en": "We came here for our anniversary and it was magical. The chef's specials are truly extraordinary."
+    }
+  },
+  {
+    "id": 3,
+    "name": "Lars Johansson",
+    "rating": 5,
+    "text": {
+      "nl": "Als culinair criticus heb ik vele restaurants bezocht, maar Aroma Amoris onderscheidt zich door passie en perfectie in elk gerecht.",
+      "en": "As a food critic, I've visited many restaurants, but Aroma Amoris distinguishes itself through passion and perfection in every dish."
+    }
+  },
+  {
+    "id": 4,
+    "name": "Maria de Vries",
+    "rating": 5,
+    "text": {
+      "nl": "De chocoladesoufflé is hemels. De hele ervaring voelt als een reis door de beste keukens van Europa.",
+      "en": "The chocolate soufflé is heavenly. The entire experience feels like a journey through the best kitchens of Europe."
+    }
+  },
+  {
+    "id": 5,
+    "name": "Alexander & Victoria Weber",
+    "rating": 5,
+    "text": {
+      "nl": "Van de eerste amuse tot het laatste petit four - elk moment was doorspekt met excellentie. Absolute top.",
+      "en": "From the first amuse-bouche to the last petit four - every moment was infused with excellence. Absolute top."
+    }
+  }
+]

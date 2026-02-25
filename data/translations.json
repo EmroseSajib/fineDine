@@ -1,0 +1,154 @@
+{
+  "nl": {
+    "nav": {
+      "home": "Home",
+      "about": "Over Ons",
+      "menu": "Menu",
+      "gallery": "Galerij",
+      "contact": "Contact",
+      "reserve": "Reserveer"
+    },
+    "hero": {
+      "subtitle": "Fine Dining in het Hart van Nederland",
+      "scroll": "Ontdek meer"
+    },
+    "story": {
+      "label": "Ons Verhaal",
+      "title": "Een Passie voor Uitmuntendheid",
+      "p1": "Sinds 2008 verwelkomt Aroma Amoris gasten in een wereld waar culinaire kunst en liefde samenkomen. Onze chef-kok, opgeleid in de meest prestigieuze keukens van Europa, brengt een unieke visie op fine dining.",
+      "p2": "Elk gerecht vertelt een verhaal van seizoensgebonden ingrediënten, vakmanschap en een onwankelbare toewijding aan perfectie. Wij geloven dat eten meer is dan voeding - het is een ervaring die alle zintuigen raakt."
+    },
+    "menu": {
+      "label": "Onze Kaart",
+      "title": "Het Menu",
+      "categories": {
+        "starters": "Voorgerechten",
+        "mains": "Hoofdgerechten",
+        "desserts": "Desserts",
+        "drinks": "Dranken"
+      }
+    },
+    "chefSpecial": {
+      "label": "Exclusief",
+      "title": "Chef's Specials"
+    },
+    "gallery": {
+      "label": "Impressie",
+      "title": "Galerij"
+    },
+    "reservation": {
+      "label": "Reservering",
+      "title": "Reserveer Uw Tafel",
+      "name": "Naam",
+      "email": "E-mail",
+      "phone": "Telefoon",
+      "guests": "Aantal Gasten",
+      "date": "Datum",
+      "time": "Tijd",
+      "message": "Bericht (optioneel)",
+      "submit": "Reserveer Nu",
+      "sending": "Verzenden...",
+      "success": "Uw reservering is verzonden! Wij nemen spoedig contact met u op.",
+      "error": "Er is iets misgegaan. Probeer het opnieuw."
+    },
+    "reviews": {
+      "label": "Ervaringen",
+      "title": "Wat Onze Gasten Zeggen"
+    },
+    "location": {
+      "label": "Locatie",
+      "title": "Bezoek Ons",
+      "address": "Keizersgracht 123, 1015 CJ Amsterdam",
+      "phone": "+31 20 123 4567",
+      "email": "info@aromaamoris.nl",
+      "hours": "Openingstijden"
+    },
+    "footer": {
+      "hours": {
+        "title": "Openingstijden",
+        "monThu": "Ma - Do: 17:00 - 23:00",
+        "friSat": "Vr - Za: 17:00 - 00:00",
+        "sun": "Zo: 12:00 - 22:00"
+      },
+      "links": "Snelle Links",
+      "social": "Volg Ons",
+      "copyright": "Alle rechten voorbehouden."
+    }
+  },
+  "en": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "menu": "Menu",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "reserve": "Reserve"
+    },
+    "hero": {
+      "subtitle": "Fine Dining in the Heart of the Netherlands",
+      "scroll": "Discover more"
+    },
+    "story": {
+      "label": "Our Story",
+      "title": "A Passion for Excellence",
+      "p1": "Since 2008, Aroma Amoris has been welcoming guests into a world where culinary art and love converge. Our head chef, trained in Europe's most prestigious kitchens, brings a unique vision to fine dining.",
+      "p2": "Every dish tells a story of seasonal ingredients, craftsmanship, and an unwavering dedication to perfection. We believe that food is more than nourishment - it is an experience that touches all senses."
+    },
+    "menu": {
+      "label": "Our Card",
+      "title": "The Menu",
+      "categories": {
+        "starters": "Starters",
+        "mains": "Main Course",
+        "desserts": "Desserts",
+        "drinks": "Drinks"
+      }
+    },
+    "chefSpecial": {
+      "label": "Exclusive",
+      "title": "Chef's Specials"
+    },
+    "gallery": {
+      "label": "Impressions",
+      "title": "Gallery"
+    },
+    "reservation": {
+      "label": "Reservation",
+      "title": "Reserve Your Table",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "guests": "Number of Guests",
+      "date": "Date",
+      "time": "Time",
+      "message": "Message (optional)",
+      "submit": "Reserve Now",
+      "sending": "Sending...",
+      "success": "Your reservation has been sent! We will contact you shortly.",
+      "error": "Something went wrong. Please try again."
+    },
+    "reviews": {
+      "label": "Experiences",
+      "title": "What Our Guests Say"
+    },
+    "location": {
+      "label": "Location",
+      "title": "Visit Us",
+      "address": "Keizersgracht 123, 1015 CJ Amsterdam",
+      "phone": "+31 20 123 4567",
+      "email": "info@aromaamoris.nl",
+      "hours": "Opening Hours"
+    },
+    "footer": {
+      "hours": {
+        "title": "Opening Hours",
+        "monThu": "Mon - Thu: 5:00 PM - 11:00 PM",
+        "friSat": "Fri - Sat: 5:00 PM - 12:00 AM",
+        "sun": "Sun: 12:00 PM - 10:00 PM"
+      },
+      "links": "Quick Links",
+      "social": "Follow Us",
+      "copyright": "All rights reserved."
+    }
+  }
+}
