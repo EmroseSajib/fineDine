@@ -5,7 +5,7 @@ import menuData from "@/data/menu.json";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import { useState } from "react";
 
-type Category = "starters" | "mains" | "desserts" | "drinks";
+type Category = "starters" | "desserts" | "drinks";
 
 interface MenuItem {
   id: string;
@@ -19,7 +19,7 @@ export function MenuSection() {
   const { ref, isVisible } = useScrollReveal(0.1);
   const [activeCategory, setActiveCategory] = useState<Category>("starters");
 
-  const categories: Category[] = ["starters", "mains", "desserts", "drinks"];
+  const categories: Category[] = ["starters", "desserts", "drinks"];
   const items = (menuData[activeCategory] as MenuItem[]) || [];
 
   return (
@@ -44,7 +44,7 @@ export function MenuSection() {
         </div>
 
         {/* Category Tabs */}
-        <div
+        {/* <div
           className={`mb-12 flex flex-wrap items-center justify-center gap-2 transition-all duration-700 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
           }`}
@@ -63,7 +63,7 @@ export function MenuSection() {
               {t(`menu.categories.${cat}`)}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Menu Items */}
         <div className="mx-auto grid max-w-4xl gap-0">
@@ -79,20 +79,37 @@ export function MenuSection() {
             >
               <div className="flex-1">
                 <h3 className="font-serif text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
-                  {item.name[lang]}
+                  {item?.name[lang]}
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                  {item.description[lang]}
+                  {item?.description[lang]}
                 </p>
               </div>
               <div className="flex items-center gap-4 sm:ml-8">
                 <div className="hidden h-px flex-1 bg-border/30 sm:block sm:min-w-[40px]" />
                 <span className="font-serif text-lg font-semibold text-primary">
-                  {item.price}
+                  {item?.price}
                 </span>
               </div>
             </div>
           ))}
+        </div>
+        <div className="mx-auto  mt-12 max-w-3xl rounded-md border border-border/40  bg-primary/5 px-6 py-6 text-center">
+          <p className="text-sm leading-relaxed text-amber-50/85">
+            {lang === "en" ? (
+              <>
+                For matching wines with your dishes, please ask the host or
+                hostess. <br />
+                For each change of courses we charge an additional € 3,50.
+              </>
+            ) : (
+              <>
+                Voor bijpassende wijnen bij uw gerechten, vraag gerust de
+                gastheer of gastvrouw. <br />
+                Voor elke wisseling van gang rekenen wij een toeslag van € 3,50.
+              </>
+            )}
+          </p>
         </div>
       </div>
     </section>

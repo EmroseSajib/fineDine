@@ -23,7 +23,7 @@
       "title": "Het Menu",
       "categories": {
         "starters": "Voorgerechten",
-        "mains": "Hoofdgerechten",
+
         "desserts": "Desserts",
         "drinks": "Dranken"
       }
@@ -99,7 +99,7 @@
       "title": "The Menu",
       "categories": {
         "starters": "Starters",
-        "mains": "Main Course",
+
         "desserts": "Desserts",
         "drinks": "Drinks"
       }
