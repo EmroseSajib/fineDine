@@ -17,7 +17,7 @@ export function Navbar() {
   const { lang, setLang, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -43,6 +43,29 @@ export function Navbar() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         {/* Logo */}
+        {open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+            {/* Modal Box */}
+            <div className="relative w-[95%] md:w-[80%] lg:w-[60%] max-w-4xl  rounded-2xl shadow-2xl overflow-hidden flex items-center justify-center">
+              {/* Close Button */}
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute md:top-[6.2rem] top-1 md:right-4  right-6 bg-black text-white rounded-full w-8 h-8 flex items-center justify-center z-10"
+              >
+                ✕
+              </button>
+
+              {/* Iframe Wrapper (important) */}
+              <div className="w-full flex items-center justify-center">
+                <iframe
+                  src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
+                  className="w-full h-[500px] md:h-[600px]"
+                  style={{ border: "none" }}
+                />
+              </div>
+            </div>
+          </div>
+        )}
         <a href="#home" className="flex items-center">
           <Image
             src="/images/logo.png"
@@ -93,6 +116,7 @@ export function Navbar() {
           {/* Reserve CTA */}
           <a
             href="#contact"
+            onClick={() => setOpen(true)}
             className="rounded-sm border border-primary bg-primary/10 px-5 py-2 text-sm font-medium tracking-wide text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground nimate-goldPulse"
           >
             {t("nav.reserve")}
@@ -151,14 +175,21 @@ export function Navbar() {
               EN
             </button>
           </div>
+          {/* <ReservationModal open={open} onClose={() => setOpen(false)} /> */}
 
-          <a
+          {/* <a
             href="#contact"
-            onClick={() => setMobileOpen(false)}
+            onClick={() => setOpen(true)}
             className="mt-4 rounded-sm border border-primary bg-primary/10 px-8 py-3 text-sm font-medium tracking-wide text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
           >
             {t("nav.reserve")}
-          </a>
+          </a> */}
+          <button
+            onClick={() => setOpen(true)}
+            className="text-primary font-medium"
+          >
+            Reservationssss
+          </button>
         </div>
       </div>
     </nav>
