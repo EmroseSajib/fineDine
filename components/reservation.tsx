@@ -392,7 +392,7 @@ export function Reservation() {
     };
 
     try {
-      const response = await fetch("/api/reservation", {
+      const response = await fetch("api/reservation", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
