@@ -116,7 +116,7 @@ export function Navbar() {
           {/* Reserve CTA */}
           <a
             href="#contact"
-            onClick={() => setOpen(true)}
+            // onClick={() => setOpen(true)}
             className="rounded-sm border border-primary bg-primary/10 px-5 py-2 text-sm font-medium tracking-wide text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground nimate-goldPulse"
           >
             {t("nav.reserve")}
