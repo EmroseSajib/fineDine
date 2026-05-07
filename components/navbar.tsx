@@ -177,19 +177,19 @@ export function Navbar() {
           </div>
           {/* <ReservationModal open={open} onClose={() => setOpen(false)} /> */}
 
-          {/* <a
+          <a
             href="#contact"
-            onClick={() => setOpen(true)}
+            // onClick={() => setOpen(true)}
             className="mt-4 rounded-sm border border-primary bg-primary/10 px-8 py-3 text-sm font-medium tracking-wide text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
           >
             {t("nav.reserve")}
-          </a> */}
-          <button
+          </a>
+          {/* <button
             onClick={() => setOpen(true)}
             className="text-primary font-medium"
           >
-            Reservationssss
-          </button>
+            Reservation
+          </button> */}
         </div>
       </div>
     </nav>

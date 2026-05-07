@@ -1,130 +1,92 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-const API_URL = "https://reserveereenvoudig.nl/AddReservering";
-const BEDRIJFS_GUID =
-  process.env.RESERVATION_BEDRIJFS_GUID || "6e0889dc3ea244c3bb87adacb5278f0e";
+const BEDRIJFS_GUID = "6e0889dc3ea244c3bb87adacb5278f0e";
 
-type ReservationBody = {
-  name: string;
-  email: string;
-  phone: string;
-  guests: number;
-  date: string;
-  time: string;
-  message?: string;
-  nation?: "NL" | "EN" | "DE";
-  arrangementId?: number;
-  waitingList?: 0 | 1;
-  requestList?: 0 | 1;
-  approval?: 0 | 1;
-  allergens?: string;
-};
-
-function toBase64Url(value: string): string {
-  return Buffer.from(value, "utf8")
+function base64Url(input: string): string {
+  return Buffer.from(input, "utf8")
     .toString("base64")
     .replace(/\+/g, "-")
     .replace(/\//g, "_")
-    .replace(/=+$/g, "");
+    .replace(/=+$/, "");
 }
 
-function buildParams(body: ReservationBody, options: { rawDateTime: boolean }) {
-  const dateValue = options.rawDateTime
-    ? body.date
-    : body.date.replaceAll("-", "");
-
-  const timeValue = options.rawDateTime
-    ? body.time
-    : `${body.time.replace(":", "")}00`;
-
-  return new URLSearchParams({
-    BedrijfsGUID: BEDRIJFS_GUID,
-    nSelectedArrangementID: String(body.arrangementId ?? 0),
-    tTijd: timeValue,
-    dDatum: dateValue,
-    nAantalPersonen: String(body.guests),
-    sEmail: toBase64Url(body.email),
-    sTelefoon: toBase64Url(body.phone),
-    sOpmerking: toBase64Url(body.message ?? ""),
-    sNaam: toBase64Url(body.name),
-    sNation: body.nation ?? "EN",
-    bZetOpWachtlijst: String(body.waitingList ?? 0),
-    bZetOpAanvraag: String(body.requestList ?? 0),
-    Goedkeuring: String(body.approval ?? 0),
-    tGeselecteerdeEindTijd: "000000",
-    tGeselecteerdeActiviteitTijd: "000000",
-    sGeselecteerdeActiviteitTijdTekst: "",
-    sVervolgkeuzes: "",
-    Bron: "8",
-    sAllergenen: (body.allergens ?? "000000000000000")
-      .padEnd(15, "0")
-      .slice(0, 15),
-  });
+function formatDate(date: string): string {
+  // input: 2026-05-20
+  return date.replaceAll("-", "");
 }
 
-async function callProvider(
-  label: string,
-  method: "GET" | "POST",
-  params: URLSearchParams,
-) {
-  let response: Response;
+function formatTime(time: string): string {
+  // input: 18:30
+  return time.replace(":", "") + "00";
+}
 
-  if (method === "GET") {
-    response = await fetch(`${API_URL}?${params.toString()}`, {
-      method: "GET",
-      cache: "no-store",
-    });
-  } else {
-    response = await fetch(API_URL, {
+export async function POST(req: Request) {
+  try {
+    const data = await req.json();
+
+    const segments = [
+      BEDRIJFS_GUID,
+      String(data.arrangementId ?? 0),
+      formatTime(data.time),
+      formatDate(data.date),
+      String(data.guests),
+      base64Url(data.email),
+      base64Url(data.phone),
+      base64Url(data.message ?? ""),
+      base64Url(data.name),
+      data.nation ?? "EN",
+      String(data.waitingList ?? 0),
+      String(data.requestList ?? 0),
+      String(data.approval ?? 0),
+      "000000",
+      "000000",
+      "_",
+      "_",
+      "8",
+      data.allergens ?? "00000000000000",
+    ];
+
+    const url = `https://reserveereenvoudig.nl/AddReservering/${segments.join("/")}`;
+
+    const response = await fetch(url, {
       method: "POST",
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
+        "Content-Type": "application/json; charset=utf-8",
+        "Content-Length": "0",
+        Accept: "application/json",
       },
-      body: params.toString(),
-      cache: "no-store",
     });
-  }
 
-  const text = await response.text();
+    const text = await response.text();
 
-  return {
-    label,
-    ok: response.ok,
-    status: response.status,
-    providerResponse: text,
-    sentParams: Object.fromEntries(params.entries()),
-  };
-}
+    if (!response.ok) {
+      return NextResponse.json(
+        {
+          message: "Reservation API failed",
+          status: response.status,
+          body: text,
+        },
+        { status: 502 },
+      );
+    }
 
-export async function POST(req: NextRequest) {
-  try {
-    const body = (await req.json()) as ReservationBody;
+    let result: unknown;
 
-    const formattedParams = buildParams(body, { rawDateTime: false });
-    const rawParams = buildParams(body, { rawDateTime: true });
+    try {
+      result = JSON.parse(text);
+    } catch {
+      result = text;
+    }
 
-    const results = await Promise.all([
-      callProvider("GET + formatted date/time", "GET", formattedParams),
-      callProvider("POST + formatted date/time", "POST", formattedParams),
-      callProvider("GET + raw date/time", "GET", rawParams),
-      callProvider("POST + raw date/time", "POST", rawParams),
-    ]);
-
-    const firstSuccess = results.find((r) => r.ok);
-
-    return NextResponse.json(
-      {
-        success: Boolean(firstSuccess),
-        recommended: firstSuccess ?? null,
-        attempts: results,
-      },
-      { status: firstSuccess ? 200 : 400 },
-    );
+    return NextResponse.json({
+      success: true,
+      result,
+    });
   } catch (error) {
     return NextResponse.json(
       {
-        message: "Unexpected server error",
-        error: error instanceof Error ? error.message : "Unknown error",
+        message:
+          error instanceof Error ? error.message : "Something went wrong",
       },
       { status: 500 },
     );
