@@ -273,7 +273,7 @@ const ALLERGY_OPTIONS = [
   { key: "molluscs", label: "Molluscs" },
   { key: "sulphurDioxide", label: "Sulphur dioxide" },
 ] as const;
-
+const today = new Date().toISOString().split("T")[0];
 const DIET_OPTIONS = [
   "Vegetarian",
   "Vegan",
@@ -283,72 +283,23 @@ const DIET_OPTIONS = [
   "No alcohol",
 ] as const;
 
-type AllergyKey = (typeof ALLERGY_OPTIONS)[number]["key"];
-
-type AllergiesState = Record<AllergyKey, boolean>;
-
-const initialAllergies: AllergiesState = {
-  egg: false,
-  gluten: false,
-  lupin: false,
-  milk: false,
-  mustard: false,
-  nuts: false,
-  peanuts: false,
-  crustaceans: false,
-  celery: false,
-  sesame: false,
-  soy: false,
-  fish: false,
-  molluscs: false,
-  sulphurDioxide: false,
-};
-
 export function Reservation() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollReveal(0.1);
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
-  const [selectedDiets, setSelectedDiets] = useState<string[]>([]);
-  const [allergies, setAllergies] = useState<AllergiesState>(initialAllergies);
+  const [dietaryPreferences, setDietaryPreferences] = useState("");
+  const [allergyInput, setAllergyInput] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
 
   const allergyString = useMemo(() => {
-    const order: AllergyKey[] = [
-      "egg",
-      "gluten",
-      "lupin",
-      "milk",
-      "mustard",
-      "nuts",
-      "peanuts",
-      "crustaceans",
-      "celery",
-      "sesame",
-      "soy",
-      "fish",
-      "molluscs",
-      "sulphurDioxide",
-    ];
+    const text = allergyInput.toLowerCase();
 
-    return order.map((key) => (allergies[key] ? "1" : "0")).join("");
-  }, [allergies]);
-
-  const toggleDiet = (diet: string) => {
-    setSelectedDiets((prev) =>
-      prev.includes(diet)
-        ? prev.filter((item) => item !== diet)
-        : [...prev, diet],
-    );
-  };
-
-  const toggleAllergy = (key: AllergyKey) => {
-    setAllergies((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
-  };
+    return ALLERGY_OPTIONS.map((item) =>
+      text.includes(item.label.toLowerCase()) ? "1" : "0",
+    ).join("");
+  }, [allergyInput]);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -359,17 +310,14 @@ export function Reservation() {
     const formData = new FormData(form);
 
     const message = String(formData.get("message") || "").trim();
-    const dietaryText =
-      selectedDiets.length > 0
-        ? `Dietary preferences: ${selectedDiets.join(", ")}`
-        : "";
-    const selectedAllergyLabels = ALLERGY_OPTIONS.filter(
-      (item) => allergies[item.key],
-    ).map((item) => item.label);
-    const allergiesText =
-      selectedAllergyLabels.length > 0
-        ? `Allergies: ${selectedAllergyLabels.join(", ")}`
-        : "";
+
+    const dietaryText = dietaryPreferences.trim()
+      ? `Dietary preferences: ${dietaryPreferences.trim()}`
+      : "";
+
+    const allergiesText = allergyInput.trim()
+      ? `Allergies: ${allergyInput.trim()}`
+      : "";
 
     const note = [dietaryText, allergiesText, message]
       .filter(Boolean)
@@ -408,8 +356,8 @@ export function Reservation() {
 
       setStatus("success");
       form.reset();
-      setSelectedDiets([]);
-      setAllergies(initialAllergies);
+      setDietaryPreferences("");
+      setAllergyInput("");
       setMarketingConsent(false);
 
       setTimeout(() => setStatus("idle"), 5000);
@@ -530,6 +478,7 @@ export function Reservation() {
                 id="date"
                 name="date"
                 type="date"
+                min={today}
                 required
                 className="border-b border-border bg-transparent px-0 py-3 text-foreground focus:border-foreground focus:outline-none transition-colors"
               />
@@ -574,48 +523,52 @@ export function Reservation() {
             </div>
           </div>
 
-          <div className="mt-8">
-            <p className="mb-4 text-xs font-medium tracking-wider uppercase text-muted-foreground">
+          <div className="mt-8 flex flex-col gap-2">
+            <label
+              htmlFor="dietaryPreferences"
+              className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
+            >
               Dietary preferences
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
+            </label>
+            <input
+              id="dietaryPreferences"
+              name="dietaryPreferences"
+              type="text"
+              list="diet-suggestions"
+              value={dietaryPreferences}
+              onChange={(e) => setDietaryPreferences(e.target.value)}
+              placeholder="Type or choose: Vegetarian, Vegan, Halal..."
+              className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
+            />
+            <datalist id="diet-suggestions">
               {DIET_OPTIONS.map((diet) => (
-                <label
-                  key={diet}
-                  className="flex items-center gap-3 rounded border border-border/60 px-3 py-3 text-sm text-foreground"
-                >
-                  <input
-                    type="checkbox"
-                    checked={selectedDiets.includes(diet)}
-                    onChange={() => toggleDiet(diet)}
-                    className="h-4 w-4"
-                  />
-                  <span>{diet}</span>
-                </label>
+                <option key={diet} value={diet} />
               ))}
-            </div>
+            </datalist>
           </div>
 
-          <div className="mt-8">
-            <p className="mb-4 text-xs font-medium tracking-wider uppercase text-muted-foreground">
+          <div className="mt-8 flex flex-col gap-2">
+            <label
+              htmlFor="allergies"
+              className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
+            >
               Allergies
-            </p>
-            <div className="grid gap-3 sm:grid-cols-2">
+            </label>
+            <input
+              id="allergies"
+              name="allergies"
+              type="text"
+              list="allergy-suggestions"
+              value={allergyInput}
+              onChange={(e) => setAllergyInput(e.target.value)}
+              placeholder="Type or choose: Gluten, Milk, Nuts..."
+              className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
+            />
+            <datalist id="allergy-suggestions">
               {ALLERGY_OPTIONS.map((item) => (
-                <label
-                  key={item.key}
-                  className="flex items-center gap-3 rounded border border-border/60 px-3 py-3 text-sm text-foreground"
-                >
-                  <input
-                    type="checkbox"
-                    checked={allergies[item.key]}
-                    onChange={() => toggleAllergy(item.key)}
-                    className="h-4 w-4"
-                  />
-                  <span>{item.label}</span>
-                </label>
+                <option key={item.key} value={item.label} />
               ))}
-            </div>
+            </datalist>
           </div>
 
           <div className="mt-6 flex flex-col gap-2">
