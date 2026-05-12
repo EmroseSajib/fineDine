@@ -26,7 +26,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       </div>
 
       {/* Black Shadow Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-black/10 z-10" />
 
       {/* Extra Gradient Shadow */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
@@ -35,7 +35,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
         {/* Logo */}
         <Image
-          src="/images/logo.png"
+          src="/images/logo2.png"
           alt="Aroma Amoris Logo"
           width={160}
           height={160}
