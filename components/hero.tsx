@@ -26,7 +26,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       </div>
 
       {/* Black Shadow Overlay */}
-      <div className="absolute inset-0 bg-black/10 z-10" />
+      <div className="absolute inset-0  z-10" />
 
       {/* Extra Gradient Shadow */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
