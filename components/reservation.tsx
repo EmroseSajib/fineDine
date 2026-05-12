@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useLanguage } from "@/context/language-context";
@@ -24,7 +23,7 @@ const ALLERGY_OPTIONS = [
   { key: "molluscs", label: "Molluscs" },
   { key: "sulphurDioxide", label: "Sulphur dioxide" },
 ] as const;
-const today = new Date().toISOString().split("T")[0];
+
 const DIET_OPTIONS = [
   "Vegetarian",
   "Vegan",
@@ -44,6 +43,8 @@ export function Reservation() {
   const [allergyInput, setAllergyInput] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
 
+  const today = new Date().toISOString().split("T")[0];
+
   const allergyString = useMemo(() => {
     const text = allergyInput.toLowerCase();
 
@@ -54,6 +55,7 @@ export function Reservation() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     setStatus("sending");
     setErrorMessage("");
 
@@ -61,6 +63,9 @@ export function Reservation() {
     const formData = new FormData(form);
 
     const message = String(formData.get("message") || "").trim();
+    const courses = String(formData.get("courses") || "").trim();
+
+    const coursesText = courses ? `Number of courses: ${courses}` : "";
 
     const dietaryText = dietaryPreferences.trim()
       ? `Dietary preferences: ${dietaryPreferences.trim()}`
@@ -70,7 +75,7 @@ export function Reservation() {
       ? `Allergies: ${allergyInput.trim()}`
       : "";
 
-    const note = [dietaryText, allergiesText, message]
+    const note = [coursesText, dietaryText, allergiesText, message]
       .filter(Boolean)
       .join(" | ");
 
@@ -106,18 +111,25 @@ export function Reservation() {
       }
 
       setStatus("success");
+
       form.reset();
       setDietaryPreferences("");
       setAllergyInput("");
       setMarketingConsent(false);
 
-      setTimeout(() => setStatus("idle"), 5000);
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
     } catch (error) {
       setStatus("error");
+
       setErrorMessage(
         error instanceof Error ? error.message : "Something went wrong",
       );
-      setTimeout(() => setStatus("idle"), 5000);
+
+      setTimeout(() => {
+        setStatus("idle");
+      }, 5000);
     }
   };
 
@@ -148,6 +160,7 @@ export function Reservation() {
           style={{ transitionDelay: "200ms" }}
         >
           <div className="grid gap-6 md:grid-cols-2">
+            {/* Name */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="name"
@@ -155,6 +168,7 @@ export function Reservation() {
               >
                 {t("reservation.name")}
               </label>
+
               <input
                 id="name"
                 name="name"
@@ -164,6 +178,7 @@ export function Reservation() {
               />
             </div>
 
+            {/* Email */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="email"
@@ -171,6 +186,7 @@ export function Reservation() {
               >
                 {t("reservation.email")}
               </label>
+
               <input
                 id="email"
                 name="email"
@@ -180,6 +196,7 @@ export function Reservation() {
               />
             </div>
 
+            {/* Phone */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="phone"
@@ -187,6 +204,7 @@ export function Reservation() {
               >
                 {t("reservation.phone")}
               </label>
+
               <input
                 id="phone"
                 name="phone"
@@ -196,6 +214,7 @@ export function Reservation() {
               />
             </div>
 
+            {/* Guests */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="guests"
@@ -203,6 +222,7 @@ export function Reservation() {
               >
                 {t("reservation.guests")}
               </label>
+
               <select
                 id="guests"
                 name="guests"
@@ -218,6 +238,34 @@ export function Reservation() {
               </select>
             </div>
 
+            {/* Number of courses */}
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="courses"
+                className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
+              >
+                Number of courses (optional)
+              </label>
+
+              <select
+                id="courses"
+                name="courses"
+                defaultValue=""
+                className="border-b border-border bg-transparent px-0 py-3 text-foreground focus:border-foreground focus:outline-none transition-colors"
+              >
+                <option value="" className="bg-card text-foreground">
+                  Select courses
+                </option>
+
+                {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+                  <option key={n} value={n} className="bg-card text-foreground">
+                    {n} Course{n > 1 ? "s" : ""}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Date */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="date"
@@ -225,16 +273,18 @@ export function Reservation() {
               >
                 {t("reservation.date")}
               </label>
+
               <input
                 id="date"
                 name="date"
                 type="date"
-                min={today}
                 required
+                min={today}
                 className="border-b border-border bg-transparent px-0 py-3 text-foreground focus:border-foreground focus:outline-none transition-colors"
               />
             </div>
 
+            {/* Time */}
             <div className="flex flex-col gap-2">
               <label
                 htmlFor="time"
@@ -242,6 +292,7 @@ export function Reservation() {
               >
                 {t("reservation.time")}
               </label>
+
               <select
                 id="time"
                 name="time"
@@ -274,6 +325,7 @@ export function Reservation() {
             </div>
           </div>
 
+          {/* Dietary preferences */}
           <div className="mt-8 flex flex-col gap-2">
             <label
               htmlFor="dietaryPreferences"
@@ -281,6 +333,7 @@ export function Reservation() {
             >
               Dietary preferences
             </label>
+
             <input
               id="dietaryPreferences"
               name="dietaryPreferences"
@@ -291,6 +344,7 @@ export function Reservation() {
               placeholder="Type or choose: Vegetarian, Vegan, Halal..."
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
+
             <datalist id="diet-suggestions">
               {DIET_OPTIONS.map((diet) => (
                 <option key={diet} value={diet} />
@@ -298,6 +352,7 @@ export function Reservation() {
             </datalist>
           </div>
 
+          {/* Allergies */}
           <div className="mt-8 flex flex-col gap-2">
             <label
               htmlFor="allergies"
@@ -305,6 +360,7 @@ export function Reservation() {
             >
               Allergies
             </label>
+
             <input
               id="allergies"
               name="allergies"
@@ -315,6 +371,7 @@ export function Reservation() {
               placeholder="Type or choose: Gluten, Milk, Nuts..."
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
+
             <datalist id="allergy-suggestions">
               {ALLERGY_OPTIONS.map((item) => (
                 <option key={item.key} value={item.label} />
@@ -322,55 +379,59 @@ export function Reservation() {
             </datalist>
           </div>
 
-          <div className="mt-6 flex flex-col gap-2">
+          {/* Message */}
+          <div className="mt-8 flex flex-col gap-2">
             <label
               htmlFor="message"
               className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
             >
               {t("reservation.message")}
             </label>
+
             <textarea
               id="message"
               name="message"
               rows={4}
-              placeholder="Extra request, occasion, seating preference, or notes"
+              placeholder="Additional notes..."
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors resize-none"
             />
           </div>
 
-          <div className="mt-6">
-            <label className="flex items-start gap-3 text-sm text-foreground">
+          {/* Marketing */}
+          <div className="mt-8">
+            <label className="flex items-center gap-3 text-sm text-muted-foreground">
               <input
                 type="checkbox"
                 checked={marketingConsent}
                 onChange={(e) => setMarketingConsent(e.target.checked)}
-                className="mt-1 h-4 w-4"
+                className="h-4 w-4"
               />
-              <span>I agree to receive promotions and updates.</span>
+              Receive promotions and updates
             </label>
           </div>
 
-          <div className="mt-8 flex flex-col items-center gap-4">
+          {/* Submit */}
+          <div className="mt-10">
             <button
               type="submit"
-              disabled={status === "sending" || status === "success"}
-              className="flex items-center gap-2 rounded-sm border border-primary bg-primary/10 px-10 py-3 text-sm font-medium tracking-wider uppercase text-primary transition-all duration-300 hover:bg-primary hover:text-primary-foreground disabled:opacity-60"
+              disabled={status === "sending"}
+              className="inline-flex items-center gap-2 bg-primary px-8 py-4 text-sm font-medium uppercase tracking-wider text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-50"
             >
               {status === "sending" && (
-                <Loader2 size={16} className="animate-spin" />
+                <Loader2 className="h-4 w-4 animate-spin" />
               )}
-              {status === "success" && <Check size={16} />}
+
+              {status === "success" && <Check className="h-4 w-4" />}
+
               {status === "sending"
-                ? t("reservation.sending")
+                ? "Sending..."
                 : status === "success"
-                  ? t("reservation.success")
+                  ? "Reserved"
                   : t("reservation.submit")}
             </button>
 
             {status === "error" && (
-              <p className="text-sm text-destructive">
-                {errorMessage || t("reservation.error")}
-              </p>
+              <p className="mt-4 text-sm text-red-500">{errorMessage}</p>
             )}
           </div>
         </form>
