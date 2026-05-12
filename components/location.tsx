@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { useLanguage } from "@/context/language-context"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import { MapPin, Phone, Mail } from "lucide-react"
+import { useLanguage } from "@/context/language-context";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export function Location() {
-  const { t } = useLanguage()
-  const { ref, isVisible } = useScrollReveal(0.1)
+  const { t } = useLanguage();
+  const { ref, isVisible } = useScrollReveal(0.1);
 
   return (
     <section className="alpana-overlay relative py-24 lg:py-32">
@@ -30,7 +30,9 @@ export function Location() {
           {/* Map */}
           <div
             className={`w-full overflow-hidden rounded-sm border border-border lg:w-2/3 transition-all duration-700 ease-out ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "200ms" }}
           >
@@ -38,7 +40,11 @@ export function Location() {
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.9!2d4.887!3d52.3676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzAzLjQiTiA0wrA1MycxMy4yIkU!5e0!3m2!1snl!2snl!4v1"
               width="100%"
               height="400"
-              style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1)" }}
+              style={{
+                border: 0,
+                filter:
+                  "invert(90%) hue-rotate(180deg) brightness(0.9) contrast(1.1)",
+              }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -49,7 +55,9 @@ export function Location() {
           {/* Contact Details */}
           <div
             className={`flex w-full flex-col justify-center lg:w-1/3 transition-all duration-700 ease-out ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-8 opacity-0"
             }`}
             style={{ transitionDelay: "400ms" }}
           >
@@ -88,7 +96,7 @@ export function Location() {
                     Email
                   </h3>
                   <a
-                    href="mailto:info@aromaamoris.nl"
+                    href="mailto:reservations@aromaamoris.nl"
                     className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {t("location.email")}
@@ -113,5 +121,5 @@ export function Location() {
         </div>
       </div>
     </section>
-  )
+  );
 }

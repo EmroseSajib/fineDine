@@ -6,71 +6,149 @@ import Image from "next/image";
 
 export function OurStory() {
   const { t } = useLanguage();
-  const { ref, isVisible } = useScrollReveal(0.2);
+  const { ref, isVisible } = useScrollReveal(0.15);
 
   return (
-    <section id="about" className="alpana-gate relative py-24 lg:py-32">
-      <div ref={ref} className="relative z-10 mx-auto max-w-7xl px-6">
-        {/* Section Label */}
+    <section
+      id="about"
+      className="alpana-gate relative overflow-hidden bg-black py-28 lg:py-36"
+    >
+      {/* 🌑 Top cinematic shadow fade */}
+      <div className="pointer-events-none absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black/90 via-black/60 to-transparent z-10" />
+
+      {/* Soft luxury glow background */}
+      <div className="pointer-events-none absolute inset-0 opacity-30">
+        <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/10 blur-3xl" />
+      </div>
+
+      <div ref={ref} className="relative z-20 mx-auto max-w-7xl px-6">
+        {/* HEADER */}
         <div
-          className={`mb-16 text-center transition-all duration-700 ease-out ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          className={`text-center transition-all duration-700 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="text-xs font-medium tracking-[0.3em] uppercase text-foreground">
+          <span className="text-[11px] tracking-[0.4em] text-white/60 uppercase">
             {t("story.label")}
           </span>
-          <h2 className="mt-4 font-serif text-4xl font-bold text-[#ffbf00be] md:text-5xl lg:text-6xl">
-            <span className="text-balance">{t("story.title")}</span>
+
+          <h2 className="mt-5 font-serif text-4xl md:text-6xl text-primary leading-tight">
+            {t("story.title")}
           </h2>
-          <div className="mx-auto mt-6 h-px w-16 bg-primary/40" />
+
+          <div className="mx-auto mt-6 h-px w-20 bg-primary/40" />
         </div>
 
-        {/* Two Column Layout */}
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
-          {/* Image */}
+        {/* GRID */}
+        <div className="mt-20 grid gap-16 lg:grid-cols-12 items-start">
+          {/* IMAGE HERO */}
           <div
-            className={`relative w-full overflow-hidden lg:w-1/2 transition-all duration-1000 ease-out ${
+            className={`lg:col-span-5 transition-all duration-1000 ${
               isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-12 opacity-0"
+                ? "opacity-100 translate-x-0"
+                : "opacity-0 -translate-x-10"
             }`}
-            style={{ transitionDelay: "200ms" }}
           >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden border border-white/10">
               <Image
                 src="/images/story.jpg"
-                alt="Chef preparing a fine dining dish"
+                alt="Aroma Amoris Story"
                 fill
                 className="object-cover transition-transform duration-700 hover:scale-105"
-                sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              {/* Golden border accent */}
-              <div className="absolute inset-0 border border-primary/20" />
+
+              {/* Luxury overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+
+              {/* Caption */}
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="text-xs tracking-[0.3em] text-white/70 uppercase">
+                  Aroma Amoris
+                </p>
+                <p className="mt-2 font-serif text-lg text-white/90 italic">
+                  “Where two worlds meet on a plate”
+                </p>
+              </div>
             </div>
-            {/* Decorative offset frame */}
-            <div className="absolute -bottom-4 -right-4 -z-10 hidden h-full w-full border border-primary/10 lg:block" />
           </div>
 
-          {/* Text */}
-          <div
-            className={`w-full lg:w-1/2 transition-all duration-1000 ease-out ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-12 opacity-0"
-            }`}
-            style={{ transitionDelay: "400ms" }}
-          >
-            <p className="text-base leading-relaxed text-foreground/70 lg:text-lg">
-              {t("story.p1")}
-            </p>
-            <p className="mt-6 text-base leading-relaxed text-foreground/70 lg:text-lg">
-              {t("story.p2")}
-            </p>
-            <div className="mt-8 h-px w-24 bg-primary/30" />
-            <p className="mt-6 font-serif text-lg italic text-primary/80">
-              {'"L\'amour de la cuisine"'}
-            </p>
+          {/* CONTENT */}
+          <div className="lg:col-span-7 space-y-14 relative">
+            {/* subtle vertical line */}
+            <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-primary/30 to-transparent" />
+
+            {/* INTRO */}
+            <div className="pl-8 border-l border-white/10">
+              <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
+                Origin
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                {t("story.intro")}
+              </p>
+            </div>
+
+            {/* CONCEPT */}
+            <div className="pl-8 border-l border-white/10">
+              <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
+                Concept
+              </h3>
+              <p className="text-white/70 leading-relaxed">
+                {t("story.concept")}
+              </p>
+            </div>
+
+            {/* FOUNDERS */}
+            <div className="grid gap-6 md:grid-cols-3">
+              {/* Aprul */}
+              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                <h4 className="font-serif text-lg text-primary">
+                  {t("story.aprul.name")}
+                </h4>
+                <p className="text-xs text-white/50 mb-3">
+                  {t("story.aprul.role")}
+                </p>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  {t("story.aprul.description")}
+                </p>
+              </div>
+
+              {/* Fahim */}
+              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                <h4 className="font-serif text-lg text-primary">
+                  {t("story.fahim.name")}
+                </h4>
+                <p className="text-xs text-white/50 mb-3">
+                  {t("story.fahim.role")}
+                </p>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  {t("story.fahim.description")}
+                </p>
+              </div>
+
+              {/* Esrat */}
+              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                <h4 className="font-serif text-lg text-primary">
+                  {t("story.esrat.name")}
+                </h4>
+                <p className="text-xs text-white/50 mb-3">
+                  {t("story.esrat.role")}
+                </p>
+                <p className="text-sm text-white/70 leading-relaxed">
+                  {t("story.esrat.description")}
+                </p>
+              </div>
+            </div>
+
+            {/* PHILOSOPHY */}
+            <div className="border-t border-white/10 pt-10">
+              <p className="text-white/80 italic leading-relaxed text-lg">
+                {t("story.ending")}
+              </p>
+
+              <p className="mt-6 text-primary font-serif italic text-xl">
+                {t("story.signature")}
+              </p>
+            </div>
           </div>
         </div>
       </div>

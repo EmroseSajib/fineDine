@@ -1,47 +1,47 @@
 [
   {
     "id": 1,
-    "name": "Sophie van den Berg",
+    "name": "Suzan Middelhuis",
     "rating": 5,
     "text": {
-      "nl": "Een onvergetelijke avond. De sfeer, het eten, de service - alles was perfect. De ossenhaas Rossini was een meesterwerk.",
-      "en": "An unforgettable evening. The atmosphere, the food, the service - everything was perfect. The beef tenderloin Rossini was a masterpiece."
+      "nl": "Wat een unieke ervaring! Het eten was ongelooflijk lekker en de avond was een ware beleving! De gerechten waren prachtig gepresenteerd en mooi opgemaakt! En de bijpassende wijnen waren ook uitstekend! Israth, de gastvrouw, was een geweldige bron van advies! Dit is zeker een pareltje in Hengelo!",
+      "en": "What a unique experience! The food was incredibly delicious, and the evening was a true experience! The dishes were exquisitely presented and beautifully presented! And the matching wines were also excellent! Israth, the hostess, was a great source of advice! This is definitely a Hengelo gem!"
     }
   },
   {
     "id": 2,
-    "name": "James & Emily Thompson",
+    "name": "Richelle Engbers",
     "rating": 5,
     "text": {
-      "nl": "We kwamen hier voor onze trouwdag en het was magisch. De chef's specials zijn werkelijk buitengewoon.",
-      "en": "We came here for our anniversary and it was magical. The chef's specials are truly extraordinary."
+      "nl": "Een absolute aanrader! Het restaurant is prachtig ingericht, de tafels zijn mooi gedekt en de verlichting is perfect. We kozen voor het 4-gangen verrassingsmenu inclusief wijnarrangement. De service is uitstekend en vriendelijk, we voelden ons echt welkom en je wensen worden gehoord. De service is uiterst vriendelijk en de tussengerechten en hoofdgerechten worden gebracht en toegelicht door de chef zelf. Alles smaakte heerlijk!",
+      "en": "An absolute must! The restaurant is very nicely decorated, the tables are nicely set and the lighting is right. We chose the 4-course surprise menu including wine arrangement. The service is excellent and friendly, we felt really welcome and your wishes are listened to. The service is extremely friendly and the intermediate and main courses are brought and explained by the chef himself. Everything tasted delicious!"
     }
   },
   {
     "id": 3,
-    "name": "Lars Johansson",
+    "name": "Marc",
     "rating": 5,
     "text": {
-      "nl": "Als culinair criticus heb ik vele restaurants bezocht, maar Aroma Amoris onderscheidt zich door passie en perfectie in elk gerecht.",
-      "en": "As a food critic, I've visited many restaurants, but Aroma Amoris distinguishes itself through passion and perfection in every dish."
+      "nl": "Heerlijk gegeten in een aangename sfeer. Hoog niveau qua smaak van de gerechten en presentatie, creatief. Zeer vriendelijke en professionele service. Redelijke prijzen. Kortom: Zeer aan te bevelen!",
+      "en": "Had a delicious meal in a pleasant atmosphere.High standard in terms of taste of the dishes and presentation, creative. Very friendly and professional service. Reasonable prices. In short: Highly recommended!"
     }
   },
   {
     "id": 4,
-    "name": "Maria de Vries",
+    "name": "Miranda Ter Braak",
     "rating": 5,
     "text": {
-      "nl": "De chocoladesoufflé is hemels. De hele ervaring voelt als een reis door de beste keukens van Europa.",
-      "en": "The chocolate soufflé is heavenly. The entire experience feels like a journey through the best kitchens of Europe."
+      "nl": "Wat een ongelooflijke sfeer en een nog betere smaaksensatie. Dit restaurant verdient veel meer erkenning; de service is ongelooflijk vriendelijk en het eten is meer dan uitstekend. Zeer aan te bevelen.",
+      "en": "What an incredible atmosphere and an even better tasting experience. This restaurant deserves much more recognition; the service is incredibly friendly, and the food is beyond excellent. Highly recommended."
     }
   },
   {
     "id": 5,
-    "name": "Alexander & Victoria Weber",
+    "name": "Thijs",
     "rating": 5,
     "text": {
-      "nl": "Van de eerste amuse tot het laatste petit four - elk moment was doorspekt met excellentie. Absolute top.",
-      "en": "From the first amuse-bouche to the last petit four - every moment was infused with excellence. Absolute top."
+      "nl": "Afgelopen vrijdag hebben we heerlijk gegeten bij het relatief nieuwe restaurant Aroma Amoris. De inrichting is sfeervol en elegant, en het personeel is ontzettend vriendelijk en attent. Maar bovenal: het eten was echt fantastisch.",
+      "en": "Last Friday, we had a wonderful meal at the relatively new restaurant Aroma Amoris. The decor is atmospheric and elegant, and the staff is incredibly friendly and attentive. But above all: the food was truly fantastic."
     }
   }
 ]
