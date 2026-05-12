@@ -39,7 +39,7 @@ export function Location() {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.9!2d4.887!3d52.3676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTLCsDIyJzAzLjQiTiA0wrA1MycxMy4yIkU!5e0!3m2!1snl!2snl!4v1"
               width="100%"
-              height="400"
+              height="600"
               style={{
                 border: 0,
                 filter:
@@ -111,9 +111,28 @@ export function Location() {
                   {t("location.hours")}
                 </h3>
                 <div className="mt-3 flex flex-col gap-1.5 text-sm text-muted-foreground">
-                  <p>{t("footer.hours.monThu")}</p>
-                  <p>{t("footer.hours.friSat")}</p>
-                  <p>{t("footer.hours.sun")}</p>
+                  {[
+                    t("footer.hours.monday"),
+                    t("footer.hours.tuesday"),
+                    t("footer.hours.wednesday"),
+                    t("footer.hours.thursday"),
+                    t("footer.hours.friday"),
+                    t("footer.hours.saturday"),
+                    t("footer.hours.sunday"),
+                  ].map((day, index) => (
+                    <div
+                      key={index}
+                      className="group flex items-center justify-between border-b border-white/10 pb-3 text-sm transition-all duration-300 hover:border-primary/40"
+                    >
+                      <span className="text-white/70 tracking-wide">
+                        {day.split(":")[0]}
+                      </span>
+
+                      <span className="font-medium text-primary">
+                        {day.split(":").slice(1).join(":")}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

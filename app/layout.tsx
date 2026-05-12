@@ -20,7 +20,7 @@ const tangerine = Tangerine({
   weight: ["400", "700"], // IMPORTANT (Tangerine needs weight)
   variable: "--font-tangerine",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
   title: "Aroma Amoris | Fine Dining Restaurant",
@@ -70,12 +70,12 @@ export default function RootLayout({
               image: "/images/hero-poster.jpg",
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Keizersgracht 123",
-                addressLocality: "Amsterdam",
-                postalCode: "1015 CJ",
+                streetAddress: "Drienerstraat 25, 7551 HK Hengelo, Netherlands",
+                addressLocality: "Hengelo",
+                postalCode: "7551 HK",
                 addressCountry: "NL",
               },
-              telephone: "+31201234567",
+              telephone: "+31743579155",
               servesCuisine: "French, European, Fine Dining",
               priceRange: "$$$$",
               openingHours: [

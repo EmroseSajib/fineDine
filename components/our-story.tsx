@@ -3,10 +3,14 @@
 import { useLanguage } from "@/context/language-context";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import Image from "next/image";
+import { useState } from "react";
 
 export function OurStory() {
   const { t } = useLanguage();
   const { ref, isVisible } = useScrollReveal(0.15);
+
+  // 👇 Add this
+  const [showMore, setShowMore] = useState(false);
 
   return (
     <section
@@ -28,10 +32,6 @@ export function OurStory() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="text-[11px] tracking-[0.4em] text-white/60 uppercase">
-            {t("story.label")}
-          </span>
-
           <h2 className="mt-5 font-serif text-4xl md:text-6xl text-primary leading-tight">
             {t("story.title")}
           </h2>
@@ -82,72 +82,97 @@ export function OurStory() {
               <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
                 Origin
               </h3>
-              <p className="text-white/70 leading-relaxed">
+
+              {/* 👇 Mobile short text */}
+              <div className="block md:hidden">
+                <p className="text-white/70 leading-relaxed">
+                  {showMore
+                    ? t("story.intro")
+                    : `${t("story.intro").slice(0, 180)}...`}
+                </p>
+
+                <button
+                  onClick={() => setShowMore(!showMore)}
+                  className="mt-4 text-sm uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-1 hover:text-white transition"
+                >
+                  {showMore ? "Read Less" : "Read More"}
+                </button>
+              </div>
+
+              {/* 👇 Full text desktop */}
+              <p className="hidden md:block text-white/70 leading-relaxed">
                 {t("story.intro")}
               </p>
             </div>
 
-            {/* CONCEPT */}
-            <div className="pl-8 border-l border-white/10">
-              <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
-                Concept
-              </h3>
-              <p className="text-white/70 leading-relaxed">
-                {t("story.concept")}
-              </p>
-            </div>
-
-            {/* FOUNDERS */}
-            <div className="grid gap-6 md:grid-cols-3">
-              {/* Aprul */}
-              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
-                <h4 className="font-serif text-lg text-primary">
-                  {t("story.aprul.name")}
-                </h4>
-                <p className="text-xs text-white/50 mb-3">
-                  {t("story.aprul.role")}
-                </p>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  {t("story.aprul.description")}
+            {/* 👇 Hide below content on mobile until read more */}
+            <div
+              className={`space-y-14 ${
+                !showMore ? "hidden md:block" : "block"
+              }`}
+            >
+              {/* CONCEPT */}
+              <div className="pl-8 border-l border-white/10">
+                <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
+                  Concept
+                </h3>
+                <p className="text-white/70 leading-relaxed">
+                  {t("story.concept")}
                 </p>
               </div>
 
-              {/* Fahim */}
-              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
-                <h4 className="font-serif text-lg text-primary">
-                  {t("story.fahim.name")}
-                </h4>
-                <p className="text-xs text-white/50 mb-3">
-                  {t("story.fahim.role")}
-                </p>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  {t("story.fahim.description")}
-                </p>
+              {/* FOUNDERS */}
+              <div className="grid gap-6 md:grid-cols-3">
+                {/* Aprul */}
+                <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                  <h4 className="font-serif text-lg text-primary">
+                    {t("story.aprul.name")}
+                  </h4>
+                  <p className="text-xs text-white/50 mb-3">
+                    {t("story.aprul.role")}
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    {t("story.aprul.description")}
+                  </p>
+                </div>
+
+                {/* Fahim */}
+                <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                  <h4 className="font-serif text-lg text-primary">
+                    {t("story.fahim.name")}
+                  </h4>
+                  <p className="text-xs text-white/50 mb-3">
+                    {t("story.fahim.role")}
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    {t("story.fahim.description")}
+                  </p>
+                </div>
+
+                {/* Esrat */}
+                <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
+                  <h4 className="font-serif text-lg text-primary">
+                    {t("story.esrat.name")}
+                  </h4>
+                  <p className="text-xs text-white/50 mb-3">
+                    {t("story.esrat.role")}
+                  </p>
+                  <p className="text-sm text-white/70 leading-relaxed">
+                    {t("story.esrat.description")}
+                  </p>
+                </div>
               </div>
 
-              {/* Esrat */}
-              <div className="p-6 border border-white/10 bg-white/5 backdrop-blur-md hover:bg-white/[0.07] transition-all duration-500">
-                <h4 className="font-serif text-lg text-primary">
-                  {t("story.esrat.name")}
-                </h4>
-                <p className="text-xs text-white/50 mb-3">
-                  {t("story.esrat.role")}
+              {/* PHILOSOPHY */}
+              <div className="border-t border-white/10 pt-10">
+                <p className="text-white/80 italic leading-relaxed text-lg">
+                  {t("story.ending")}
                 </p>
-                <p className="text-sm text-white/70 leading-relaxed">
-                  {t("story.esrat.description")}
+
+                <p className="mt-6 text-primary font-serif italic text-xl">
+                  {t("story.signature")}
                 </p>
               </div>
-            </div>
-
-            {/* PHILOSOPHY */}
-            <div className="border-t border-white/10 pt-10">
-              <p className="text-white/80 italic leading-relaxed text-lg">
-                {t("story.ending")}
-              </p>
-
-              <p className="mt-6 text-primary font-serif italic text-xl">
-                {t("story.signature")}
-              </p>
             </div>
           </div>
         </div>

@@ -13,8 +13,7 @@
       "scroll": "Ontdek meer"
     },
     "story": {
-      "label": "Ons Verhaal",
-      "title": "De elegantie van Nederland, de ziel van Bangladesh",
+      "title": "Ons Verhaal",
 
       "intro": "Het verhaal van Aroma Amoris, ‘Het kruid van de liefde’ in het Latijn, is geworteld in twee werelden. Bangladesh is onze bodem: rijk, warm en gul. Nederland is ons bladerdak: gestructureerd, verfijnd en naar boven gericht. Wij horen bij beide, en beide horen bij ons. Bij Aroma Amoris komen deze twee identiteiten samen op het bord.",
 
@@ -84,17 +83,21 @@
     "location": {
       "label": "Locatie",
       "title": "Bezoek Ons",
-      "address": "Keizersgracht 123, 1015 CJ Amsterdam",
-      "phone": "+31 074 357 9155",
+      "address": "Drienerstraat 25, 7551 HK Hengelo, Netherlands",
+      "phone": "+31 74 357 9155",
       "email": "reservations@aromaamoris.nl",
       "hours": "Openingstijden"
     },
     "footer": {
       "hours": {
         "title": "Openingstijden",
-        "monThu": "Ma - Do: 17:00 - 23:00",
-        "friSat": "Vr - Za: 17:00 - 00:00",
-        "sun": "Zo: 12:00 - 22:00"
+        "monday": "Maandag: Gesloten",
+        "tuesday": "Dinsdag: Gesloten",
+        "wednesday": "Woensdag: 17:00 - 23:00",
+        "thursday": "Donderdag: 17:00 - 23:00",
+        "friday": "Vrijdag: 17:00 - 23:00",
+        "saturday": "Zaterdag: 17:00 - 23:00",
+        "sunday": "Zondag: 17:00 - 23:00"
       },
       "links": "Snelle Links",
       "social": "Volg Ons",
@@ -111,12 +114,11 @@
       "reserve": "Reserve"
     },
     "hero": {
-      "subtitle": "Fine Dining in the Heart of the Twente",
+      "subtitle": "Fine Dining in the Heart of Twente",
       "scroll": "Discover more"
     },
     "story": {
-      "label": "Our Story",
-      "title": "The Elegance of the Netherlands, The Soul of Bangladesh",
+      "title": "Our Story",
 
       "intro": "The story of Aroma Amoris, ‘Spice of Love’ in Latin, is rooted in two worlds. Bangladesh is our soil — rich, warm, and generous — while the Netherlands is our canopy — structured, refined, and reaching upward. We belong to both, and both belong to us. At Aroma Amoris, these two identities meet on the plate.",
 
@@ -186,17 +188,21 @@
     "location": {
       "label": "Location",
       "title": "Visit Us",
-      "address": "Keizersgracht 123, 1015 CJ Amsterdam",
-      "phone": "+31 074 357 9155",
+      "address": "Drienerstraat 25, 7551 HK Hengelo, Netherlands",
+      "phone": "+31 74 357 9155",
       "email": "reservations@aromaamoris.nl",
       "hours": "Opening Hours"
     },
     "footer": {
       "hours": {
         "title": "Opening Hours",
-        "monThu": "Mon - Thu: 5:00 PM - 11:00 PM",
-        "friSat": "Fri - Sat: 5:00 PM - 12:00 AM",
-        "sun": "Sun: 12:00 PM - 10:00 PM"
+        "monday": "Monday: Closed",
+        "tuesday": "Tuesday: Closed",
+        "wednesday": "Wednesday: 5:00 PM - 11:00 PM",
+        "thursday": "Thursday: 5:00 PM - 11:00 PM",
+        "friday": "Friday: 5:00 PM - 11:00 PM",
+        "saturday": "Saturday: 5:00 PM - 11:00 PM",
+        "sunday": "Sunday: 5:00 PM - 11:00 PM"
       },
       "links": "Quick Links",
       "social": "Follow Us",

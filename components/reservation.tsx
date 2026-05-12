@@ -257,7 +257,7 @@ export function Reservation() {
                   Select courses
                 </option>
 
-                {[1, 2, 3, 4, 5, 6, 7].map((n) => (
+                {[3, 4, 5].map((n) => (
                   <option key={n} value={n} className="bg-card text-foreground">
                     {n} Course{n > 1 ? "s" : ""}
                   </option>
