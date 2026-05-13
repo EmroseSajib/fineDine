@@ -244,7 +244,7 @@ export function Reservation() {
                 htmlFor="courses"
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
-                Number of courses (optional)
+                {t("reservation.numberofCourse")}
               </label>
 
               <select
@@ -254,7 +254,7 @@ export function Reservation() {
                 className="border-b border-border bg-transparent px-0 py-3 text-foreground focus:border-foreground focus:outline-none transition-colors"
               >
                 <option value="" className="bg-card text-foreground">
-                  Select courses
+                  {t("reservation.selectCourse")}
                 </option>
 
                 {[3, 4, 5].map((n) => (
@@ -331,7 +331,7 @@ export function Reservation() {
               htmlFor="dietaryPreferences"
               className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
             >
-              Dietary preferences
+              {t("reservation.dietary")}
             </label>
 
             <input
@@ -341,7 +341,7 @@ export function Reservation() {
               list="diet-suggestions"
               value={dietaryPreferences}
               onChange={(e) => setDietaryPreferences(e.target.value)}
-              placeholder="Type or choose: Vegetarian, Vegan, Halal..."
+              placeholder={`${t("reservation.typeof")}: Vegetarian, Vegan, Halal...`}
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
 
@@ -368,7 +368,7 @@ export function Reservation() {
               list="allergy-suggestions"
               value={allergyInput}
               onChange={(e) => setAllergyInput(e.target.value)}
-              placeholder="Type or choose: Gluten, Milk, Nuts..."
+              placeholder={`${t("reservation.typeof")}: Gluten, Milk, Nuts...`}
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
 

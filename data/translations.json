@@ -17,29 +17,29 @@
 
       "intro": "Het verhaal van Aroma Amoris, ‘Het kruid van de liefde’ in het Latijn, is geworteld in twee werelden. Bangladesh is onze bodem: rijk, warm en gul. Nederland is ons bladerdak: gestructureerd, verfijnd en naar boven gericht. Wij horen bij beide, en beide horen bij ons. Bij Aroma Amoris komen deze twee identiteiten samen op het bord.",
 
-      "concept": "Onze eigenaren Aprul Manik, Fahim Ahmed en Esrat Choudhry delen een Bengaalse achtergrond en een liefde voor gastronomie en gastvrijheid. In 2023 bracht Chef Fahim Ahmed het idee naar voren om een fusie te creëren tussen de Bangladeshi en Europese keuken binnen een fine dining ervaring. Samen vormden zij de visie van Aroma Amoris.",
+      "concept": "Onze eigenaren Aprul Manik, Fahim Ahmed en Esrat Choudhry delen een Bengaalse achtergrond en een liefde voor gastronomie en gastvrijheid.In 2023 bracht Chef Fahim Ahmed het idee naar voren om een fusie te creëren tussen de Bangladeshi en Europese keuken binnen een fine dining ervaring. Hij deelde dit met Aprul Manik, die ervan droomde de Bangladeshi keuken op nieuwe manieren met zijn gemeenschap te delen. Samen vormden zij het eerste concept van Aroma Amoris.",
 
       "aprul": {
         "name": "Aprul Manik",
-        "role": "Oprichter",
-        "description": "Met meer dan 30 jaar ervaring als horecaondernemer en meerdere restaurants op zijn naam, waaronder Bombay Spice in Hengelo, voelde Aprul Manik dat het tijd was voor iets nieuws. Hij wilde iets bijzonders brengen naar Hengelo, Twente en Nederland als geheel. Voor hem is de Nederlandse fine dining keuken een ode aan precisie, terwijl de Bengaalse keuken een viering van overvloed is. Samen creëren deze twee werelden een harmonie die geen van beide alleen zou kunnen bereiken."
+        "role": "",
+        "description": "Met meer dan 30 jaar ervaring als horeca ondernemer en meerdere restaurants op mijn naam, waaronder Bombay Spice in Hengelo, voelde ik dat het tijd was voor iets nieuws. Ik wilde iets bijzonders geven aan Hengelo, aan Twente en aan Nederland als geheel.De Nederlandse fine dining keuken is een ode aan precisie: een paar zorgvuldig gekozen ingrediënten, elk met de ruimte om in volle glorie te schitteren. De Bengaalse keuken is een viering van overvloed: gedeelde gerechten, gelaagde smaken, een vreugdevol samenspel. De één is minimalistisch, de ander uitbundig. Maar samen creëren ze een harmonie die geen van beide alleen zou kunnen bereiken."
       },
 
       "fahim": {
         "name": "Fahim Ahmed",
         "role": "Head Chef",
-        "description": "Fahim Ahmed groeide op met een diepe liefde voor kruiden en smaken. Hij was altijd gefascineerd door hoe talloze specerijen en ingrediënten samen onvergetelijke gerechten konden creëren. In 2023 kreeg hij de kans om een restaurant te bouwen vanuit zijn eigen visie en passie. Die droom werd Aroma Amoris — een naam die de liefde voor kruiden weerspiegelt en het begin markeert van deze culinaire reis."
+        "description": "Ik ben opgegroeid met een diepe liefde voor kruiden. Het heeft me altijd gefascineerd hoe zo’n enorme verzameling ogenschijnlijk willekeurige snufjes en specerijen smaken kan creëren die zó heerlijk zijn dat ik erover droomde; alsof het magie was, een heksenbrouwsel! In 2023 legde Aprul een onverwachte mogelijkheid voor me neer — de kans om een restaurant te bouwen dat gevormd zou worden door mijn eigen visie. In dat moment voelde het alsof het universum even stilviel, naar voren boog en fluisterde: Het is tijd. En zo werd Aroma Amoris geboren. Een naam die “de liefde voor kruiden” betekent, omdat daar deze reis werkelijk is begonnen."
       },
 
       "esrat": {
         "name": "Esrat Choudhry",
         "role": "Head Hostess",
-        "description": "Voor Esrat Choudhry is Aroma Amoris meer dan alleen een onderneming. Het is een kans om de tradities, vrijgevigheid, smaken en verhalen van Bangladesh met Europa te delen. Met trots verwelkomt zij gasten en vertegenwoordigt zij de Bengaalse gastvrijheid en cultuur, waardoor iedere bezoeker zich warm en welkom voelt."
+        "description": "Voor mij is Aroma Amoris meer dan alleen een onderneming. Toen Aprul mij uitnodigde om deel uit te maken van de visie van Aroma Amoris en mij voorstelde aan Fahim, voelde ik meteen een diepe connectie. Het was een kans om iets zeer persoonlijks te delen: de smaken, tradities, vrijgevigheid en verhalen van Bangladesh — iets wat veel mensen in Europa nog nooit echt hebben ervaren. Bij Aroma Amoris brengen we dat erfgoed met trots naar de tafel. Je zult mij vaak bij de ingang vinden, gekleed in een traditionele saree, klaar om je te verwelkomen."
       },
 
-      "ending": "De filosofie achter Aroma Amoris is eenvoudig: de elegantie van Nederland, de ziel van Bangladesh en het geloof dat tegenpolen elkaar niet tegenwerken, maar juist aanvullen. Elk gerecht dat wij creëren vormt een brug tussen deze werelden — een combinatie van verfijning, warmte, structuur en spontaniteit. Welkom bij Aroma Amoris. Dit is ons verhaal. Dit is onze tafel.",
+      "ending": "De filosofie achter Aroma Amoris: de elegantie van Nederland, de ziel van Bangladesh, en het geloof dat tegenpolen niet botsen — maar elkaar juist aanvullen. Elk gerecht dat we creëren is een brug tussen deze werelden. Een stille conversatie tussen structuur en spontaniteit. Een dans tussen verfijning en warmte. Een herinnering dat magie kan ontstaan uit chaos, en schoonheid uit contrast.",
 
-      "invitation": "We nodigen je graag uit voor iets bijzonders.",
+      "invitation": "Welkom bij Aroma Amoris. Dit is ons verhaal. Dit is onze tafel.We nodigen je graag uit voor iets bijzonders.",
 
       "signature": "Met vriendelijke groet, Team Aroma Amoris"
     },
@@ -48,7 +48,6 @@
       "title": "Het Menu",
       "categories": {
         "starters": "Voorgerechten",
-
         "desserts": "Desserts",
         "drinks": "Dranken"
       }
@@ -63,13 +62,17 @@
     },
     "reservation": {
       "label": "Reservering",
-      "title": "Reserveer Uw Tafel",
+      "title": "Reserveer een tafel",
       "name": "Naam",
       "email": "E-mail",
       "phone": "Telefoon",
       "guests": "Aantal Gasten",
+      "numberofCourse": "Aantal gangen (optioneel)",
+      "selectCourse": "Kies een gang",
+      "dietary": "Dieetwensen",
       "date": "Datum",
       "time": "Tijd",
+      "typeof": "Type of keuze",
       "message": "Bericht (optioneel)",
       "submit": "Reserveer Nu",
       "sending": "Verzenden...",
@@ -120,29 +123,29 @@
     "story": {
       "title": "Our Story",
 
-      "intro": "The story of Aroma Amoris, ‘Spice of Love’ in Latin, is rooted in two worlds. Bangladesh is our soil — rich, warm, and generous — while the Netherlands is our canopy — structured, refined, and reaching upward. We belong to both, and both belong to us. At Aroma Amoris, these two identities meet on the plate.",
+      "intro": "The story of Aroma Amoris, ‘Spice of Love’ in Latin, is rooted in two worlds. Bangladesh is our soil — rich, warm, generous— and the Netherlands is our canopy — structured, refined, reaching upward. We belong to both, and both belong to us. At Aroma Amoris, these two identities meet on the plate.",
 
-      "concept": "Our owners Aprul Manik, Fahim Ahmed, and Esrat Choudhry share a Bangladeshi identity and a deep love for food and hospitality. In 2023, Chef Fahim Ahmed introduced the idea of creating a fusion of Bangladeshi and European cuisine within a fine dining experience. Together, they shaped the vision of Aroma Amoris.",
+      "concept": "Our owners Aprul Manik, Fahim Ahmed, and Esrat Choudhry all share a Bangladeshi identity and a love for food and hospitality.In 2023, Chef Fahim Ahmed brought anidea of creating a fusion of Bangladeshi and European cuisine with a fine dining experience to Aprul Manik,who dreamt of sharing Bangladeshi cuisine with his community in novel ways. Together, they shaped the initial concept of Aroma Amoris.",
 
       "aprul": {
         "name": "Aprul Manik",
-        "role": "Founder",
-        "description": "With over 30 years of experience as a horeca entrepreneur and several restaurants behind him, including Bombay Spice in Hengelo, Aprul Manik felt it was time for something new. He wanted to bring something special to Hengelo, Twente, and the Netherlands as a whole. For him, Dutch fine dining is an ode to precision, while Bangladeshi cuisine is a celebration of abundance. Together, these two worlds create a harmony neither could achieve alone."
+        "role": "",
+        "description": "With over 30 years as a horeca entrepreneur and several restaurants behind me, including Bombay Spice in Hengelo, I felt it was time for something new. I wanted to give something special to Hengelo, to Twente, and to the Netherlands as a whole.Dutch fine dining is an ode to precision: a few carefully chosen ingredients, each given space to shine. Bangladeshi cuisine is a celebration of abundance: dishes shared, flavours layered, a joyful chorus. One is minimalist, the other exuberant. Yet togetherthey create a harmony neither could achieve alone."
       },
 
       "fahim": {
         "name": "Fahim Ahmed",
         "role": "Head Chef",
-        "description": "Fahim Ahmed grew up with a deep love for spices and the magic of flavours. He was fascinated by how countless spices and ingredients could create unforgettable dishes. In 2023, he was given the opportunity to build a restaurant shaped by his own vision and passion. That dream became Aroma Amoris — a name that reflects the love of spices and the beginning of this culinary journey."
+        "description": "I grew up with a deep love for spices. It always fascinated me how such a vast array of seemingly unrelated bits and bobs could create flavours so delicious that I’d dream of them; as if it was magic, a witches brew! In 2023, Aprul placed an unexpected possibility in front of me — the chance to build a restaurant shaped by my own heart. In that moment, it felt as though the universe paused, leaned in, and whispered: It’s time. And soAroma Amoris came into being. A name that means “the love of spices,” because that is where this journey truly began."
       },
 
       "esrat": {
         "name": "Esrat Choudhry",
         "role": "Head Hostess",
-        "description": "For Esrat Choudhry, Aroma Amoris is more than a business. It is a chance to share the traditions, generosity, flavours, and stories of Bangladesh with Europe. She proudly welcomes guests while representing Bangladeshi heritage and hospitality, creating a warm and memorable experience for everyone who walks through the doors of Aroma Amoris."
+        "description": "For me, Aroma Amoris is more thanjust a business.When Aprul invited me into the vision of Aroma Amorisand introduced me to Fahim, I felt an immediate connection. It was a chance to share something deeply personal: the flavours, tradition, generosity, and story of Bangladesh that many in Europe have never truly experienced.At Aroma Amoris, we bring that heritage to the table with pride. You will find me wearing a traditional saree at the doorstep of Aroma Amoris to welcome you."
       },
 
-      "ending": "The philosophy behind Aroma Amoris is simple: the elegance of the Netherlands, the soul of Bangladesh, and the belief that opposites do not clash — they complete one another. Every dish we create is a bridge between these worlds, blending refinement with warmth and structure with spontaneity. Welcome to Aroma Amoris. This is our story. This is our table.",
+      "ending": "The philosophy behind Aroma Amoris: the elegance of the Netherlands, the soul of Bangladesh, and the belief that opposites do not clash — they complete one another.Every dish we create is a bridge between these worlds. A quiet conversation between structure and spontaneity. A dance between refinement and warmth. A reminder that magic can be born from chaos, and beauty from contrast.Welcome to Aroma Amoris.This is our story. This is our table.",
 
       "invitation": "We would like to invite you to something special.",
 
@@ -173,6 +176,10 @@
       "email": "Email",
       "phone": "Phone",
       "guests": "Number of Guests",
+      "numberofCourse": "Number of courses (optional) ",
+      "selectCourse": "Select Courses",
+      "typeof": "Type or choice",
+      "dietary": "Dietary preferences",
       "date": "Date",
       "time": "Time",
       "message": "Message (optional)",
