@@ -21,7 +21,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
           fill
           priority
           quality={100}
-          className="object-cover object-bottom"
+          className="object-cover object-center"
         />
       </div>
 
