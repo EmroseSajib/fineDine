@@ -35,7 +35,7 @@ export function Footer() {
             </a>
 
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-              Fine Dining in het Hart van Nederland
+              {t("hero.subtitle")}
             </p>
           </div>
 

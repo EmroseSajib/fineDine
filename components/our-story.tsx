@@ -15,7 +15,7 @@ export function OurStory() {
   return (
     <section
       id="about"
-      className="alpana-gate relative overflow-hidden bg-black py-28 lg:py-36"
+      className="alpana-gate relative overflow-hidden bg-black pt-10 md:py-28 lg:py-36"
     >
       {/* 🌑 Top cinematic shadow fade */}
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black/90 via-black/60 to-transparent z-10" />
@@ -32,7 +32,7 @@ export function OurStory() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <h2 className="mt-5 font-serif text-4xl md:text-6xl text-primary leading-tight">
+          <h2 className="lg:mt-5 mt-20 font-serif text-4xl md:text-6xl text-primary leading-tight">
             {t("story.title")}
           </h2>
 
@@ -168,8 +168,14 @@ export function OurStory() {
                 <p className="text-white/80 italic leading-relaxed text-lg">
                   {t("story.ending")}
                 </p>
+                <p className="text-white/80 italic leading-relaxed text-lg">
+                  {t("story.invitation")}
+                </p>
 
                 <p className="mt-6 text-primary font-serif italic text-xl">
+                  {t("story.signtop")}
+                </p>
+                <p className=" text-primary font-serif italic text-xl">
                   {t("story.signature")}
                 </p>
               </div>

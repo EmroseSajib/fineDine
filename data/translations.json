@@ -10,7 +10,8 @@
     },
     "hero": {
       "subtitle": "Fine Dining in het Hart van Twente",
-      "scroll": "Ontdek meer"
+      "scroll": "Ontdek meer",
+      "table": "Reserveer een tafel"
     },
     "story": {
       "title": "Ons Verhaal",
@@ -40,8 +41,8 @@
       "ending": "De filosofie achter Aroma Amoris: de elegantie van Nederland, de ziel van Bangladesh, en het geloof dat tegenpolen niet botsen — maar elkaar juist aanvullen. Elk gerecht dat we creëren is een brug tussen deze werelden. Een stille conversatie tussen structuur en spontaniteit. Een dans tussen verfijning en warmte. Een herinnering dat magie kan ontstaan uit chaos, en schoonheid uit contrast.",
 
       "invitation": "Welkom bij Aroma Amoris. Dit is ons verhaal. Dit is onze tafel.We nodigen je graag uit voor iets bijzonders.",
-
-      "signature": "Met vriendelijke groet, Team Aroma Amoris"
+      "signtop": "Met vriendelijke groet,",
+      "signature": "Team Aroma Amoris"
     },
     "menu": {
       "label": "Onze Kaart",
@@ -70,8 +71,11 @@
       "numberofCourse": "Aantal gangen (optioneel)",
       "selectCourse": "Kies een gang",
       "dietary": "Dieetwensen",
+      "notes": "Aanvullende opmerkingen",
+      "allergy": "Allergieën",
       "date": "Datum",
       "time": "Tijd",
+      "receive": "Ontvang promoties en updates",
       "typeof": "Type of keuze",
       "message": "Bericht (optioneel)",
       "submit": "Reserveer Nu",
@@ -86,6 +90,7 @@
     "location": {
       "label": "Locatie",
       "title": "Bezoek Ons",
+      "telephone": "Telefoon",
       "address": "Drienerstraat 25, 7551 HK Hengelo, Netherlands",
       "phone": "+31 74 357 9155",
       "email": "reservations@aromaamoris.nl",
@@ -118,7 +123,8 @@
     },
     "hero": {
       "subtitle": "Fine Dining in the Heart of Twente",
-      "scroll": "Discover more"
+      "scroll": "Discover more",
+      "table": "Book a Table"
     },
     "story": {
       "title": "Our Story",
@@ -145,11 +151,11 @@
         "description": "For me, Aroma Amoris is more thanjust a business.When Aprul invited me into the vision of Aroma Amorisand introduced me to Fahim, I felt an immediate connection. It was a chance to share something deeply personal: the flavours, tradition, generosity, and story of Bangladesh that many in Europe have never truly experienced.At Aroma Amoris, we bring that heritage to the table with pride. You will find me wearing a traditional saree at the doorstep of Aroma Amoris to welcome you."
       },
 
-      "ending": "The philosophy behind Aroma Amoris: the elegance of the Netherlands, the soul of Bangladesh, and the belief that opposites do not clash — they complete one another.Every dish we create is a bridge between these worlds. A quiet conversation between structure and spontaneity. A dance between refinement and warmth. A reminder that magic can be born from chaos, and beauty from contrast.Welcome to Aroma Amoris.This is our story. This is our table.",
+      "ending": "The philosophy behind Aroma Amoris: the elegance of the Netherlands, the soul of Bangladesh, and the belief that opposites do not clash — they complete one another.Every dish we create is a bridge between these worlds. A quiet conversation between structure and spontaneity. A dance between refinement and warmth. A reminder that magic can be born from chaos, and beauty from contrast.",
 
-      "invitation": "We would like to invite you to something special.",
-
-      "signature": "Best, Team Aroma Amoris"
+      "invitation": "Welcome to Aroma Amoris.This is our story. This is our table.We would like to invite you to something special.",
+      "signtop": "Best,",
+      "signature": "Team Aroma Amoris"
     },
     "menu": {
       "label": "Our Card",
@@ -180,8 +186,11 @@
       "selectCourse": "Select Courses",
       "typeof": "Type or choice",
       "dietary": "Dietary preferences",
+      "notes": "Additional notes",
+      "allergy": "Allergies",
       "date": "Date",
       "time": "Time",
+      "receive": "Receive promotions and updates",
       "message": "Message (optional)",
       "submit": "Reserve Now",
       "sending": "Sending...",
@@ -195,6 +204,7 @@
     "location": {
       "label": "Location",
       "title": "Visit Us",
+      "telephone": "Telephone",
       "address": "Drienerstraat 25, 7551 HK Hengelo, Netherlands",
       "phone": "+31 74 357 9155",
       "email": "reservations@aromaamoris.nl",

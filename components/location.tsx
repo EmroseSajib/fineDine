@@ -66,7 +66,7 @@ export function Location() {
                 <MapPin size={20} className="mt-1 shrink-0 text-primary" />
                 <div>
                   <h3 className="text-sm font-medium tracking-wider uppercase text-foreground">
-                    Address
+                    {t("location.label")}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                     {t("location.address")}
@@ -78,7 +78,7 @@ export function Location() {
                 <Phone size={20} className="mt-1 shrink-0 text-primary" />
                 <div>
                   <h3 className="text-sm font-medium tracking-wider uppercase text-foreground">
-                    Telefoon
+                    {t("location.telephone")}
                   </h3>
                   <a
                     href="tel:+31201234567"

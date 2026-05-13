@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Aroma Amoris | Fine Dining Restaurant",
     description:
-      "Fine dining in het hart van Nederland. Een unieke culinaire ervaring.",
+      "Fine Dining in the Heart of Twente. Een unieke culinaire ervaring.",
     type: "website",
     locale: "nl_NL",
     alternateLocale: "en_US",

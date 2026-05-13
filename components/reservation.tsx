@@ -358,7 +358,7 @@ export function Reservation() {
               htmlFor="allergies"
               className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
             >
-              Allergies
+              {t("reservation.allergy")}
             </label>
 
             <input
@@ -392,7 +392,7 @@ export function Reservation() {
               id="message"
               name="message"
               rows={4}
-              placeholder="Additional notes..."
+              placeholder={t("reservation.notes")}
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors resize-none"
             />
           </div>
@@ -406,7 +406,7 @@ export function Reservation() {
                 onChange={(e) => setMarketingConsent(e.target.checked)}
                 className="h-4 w-4"
               />
-              Receive promotions and updates
+              {t("reservation.receive")}
             </label>
           </div>
 

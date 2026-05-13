@@ -72,7 +72,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
             }}
             className="mt-8 px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary/80 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
-            Book a Table
+            {t("hero.table")}
           </button>
         </div>
 
