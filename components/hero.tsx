@@ -112,7 +112,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source
-          src="https://res.cloudinary.com/dmjccgqva/video/upload/v1778782377/amoraamoris_z4wjeh.mp4"
+          src="https://res.cloudinary.com/dmjccgqva/video/upload/v1778785999/0515_1_xgfmez.mp4"
           type="video/mp4"
         />
       </video>
