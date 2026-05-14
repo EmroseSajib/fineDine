@@ -162,7 +162,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
           </button> */}
           <button
             onClick={() => {
-              const section = document.getElementById("reservation");
+              const section = document.getElementById("contact");
               section?.scrollIntoView({ behavior: "smooth" });
             }}
             className="px-8 py-3 bg-primary text-foreground font-semibold rounded hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 animate-slide-up "
