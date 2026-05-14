@@ -168,7 +168,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
             className="px-8 py-3 bg-primary text-foreground font-semibold rounded hover:bg-accent/90 transition-all duration-300 transform hover:scale-105 animate-slide-up "
             style={{ animationDelay: "0.4s" }}
           >
-            Book a Table
+            {t("hero.table")}
           </button>
         </div>
 
