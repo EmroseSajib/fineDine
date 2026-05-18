@@ -29,7 +29,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       <div className="absolute inset-0  z-10" />
 
       {/* Extra Gradient Shadow */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/80 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-[#182733]/40 to-black/80 z-10" />
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center px-4">
@@ -40,7 +40,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
           width={160}
           height={160}
           priority
-          className="w-auto h-28 md:h-36 object-contain mb-4"
+          className="w-auto h-28 md:h-36 object-contain mb-2"
         />
 
         <div

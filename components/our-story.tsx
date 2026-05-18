@@ -15,7 +15,7 @@ export function OurStory() {
   return (
     <section
       id="about"
-      className="alpana-gate relative overflow-hidden bg-black pt-10 md:py-28 lg:py-36"
+      className="alpana-gate relative overflow-hidden  pt-10 md:py-28 lg:py-36"
     >
       {/* 🌑 Top cinematic shadow fade */}
       <div className="pointer-events-none absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-black/90 via-black/60 to-transparent z-10" />
@@ -113,9 +113,9 @@ export function OurStory() {
             >
               {/* CONCEPT */}
               <div className="pl-8 border-l border-white/10">
-                <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
+                {/* <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
                   Concept
-                </h3>
+                </h3> */}
                 <p className="text-white/70 leading-relaxed">
                   {t("story.concept")}
                 </p>

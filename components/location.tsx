@@ -9,7 +9,7 @@ export function Location() {
   const { ref, isVisible } = useScrollReveal(0.1);
 
   return (
-    <section className="alpana-overlay relative py-24 lg:py-32">
+    <section className=" relative py-24 lg:py-32">
       <div ref={ref} className="relative z-10 mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div

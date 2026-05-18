@@ -134,7 +134,7 @@ export function Reservation() {
   };
 
   return (
-    <section id="contact" className="alpana-overlay relative py-24 lg:py-32">
+    <section id="contact" className=" relative py-24 lg:py-32">
       <div ref={ref} className="relative z-10 mx-auto max-w-3xl px-6">
         <div
           className={`mb-16 text-center transition-all duration-700 ease-out ${
@@ -259,7 +259,7 @@ export function Reservation() {
 
                 {[3, 4, 5].map((n) => (
                   <option key={n} value={n} className="bg-card text-foreground">
-                    {n} Course{n > 1 ? "s" : ""}
+                    {n} {t("reservation.courses")}
                   </option>
                 ))}
               </select>

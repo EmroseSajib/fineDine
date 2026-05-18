@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #2c3233;
+  --background: #182733;
   --foreground: #e8e2d8;
   --card: #1a1a1a;
   --card-foreground: #e8e2d8;
@@ -76,7 +76,7 @@
 
 /* Glassmorphism utility */
 .glass {
-  background: rgba(26, 26, 26, 0.6);
+  background: #1a1a1a42;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(212, 175, 55, 0.1);
@@ -100,7 +100,6 @@
 /* Alpana pattern overlay */
 .alpana-gate {
   position: relative;
-  background-color: #2c3233;
   overflow: hidden;
 }
 
@@ -135,7 +134,7 @@
 }
 .alpana-overlay {
   position: relative;
-  background-color: #2c3233; /* dark premium base */
+  /* dark premium base */
   overflow: hidden;
 }
 

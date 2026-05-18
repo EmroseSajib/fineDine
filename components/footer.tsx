@@ -15,7 +15,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative border-t border-primary/20 bg-card">
+    <footer className="relative border-t border-primary/20 ">
       {/* Golden accent line */}
       <div className="h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent" />
 

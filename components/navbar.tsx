@@ -43,7 +43,7 @@ export function Navbar() {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "bg-black/70 backdrop-blur-2xl border-b border-white/10 py-3 shadow-2xl"
+            ? "bg-[#1a1a1a38]/70 backdrop-blur-2xl border-b border-white/10 py-3 shadow-2xl"
             : "bg-transparent py-5"
         }`}
       >
@@ -124,7 +124,7 @@ export function Navbar() {
         }`}
       >
         {/* BACKDROP */}
-        <div className="absolute inset-0 bg-black/90 backdrop-blur-2xl" />
+        <div className="absolute inset-0 bg-[#182733]/90 backdrop-blur-2xl" />
 
         {/* GLOW */}
         <div className="absolute left-1/2 top-1/3 h-[250px] w-[250px] -translate-x-1/2 rounded-full bg-[#FFD700]/10 blur-3xl" />

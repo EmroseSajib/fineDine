@@ -9,7 +9,6 @@ import { Navbar } from "@/components/navbar";
 import { OurStory } from "@/components/our-story";
 import { Reservation } from "@/components/reservation";
 import { Reviews } from "@/components/reviews";
-import { WhatsAppButton } from "@/components/whatsapp-button";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -31,7 +30,7 @@ export default function Home() {
       <Reviews />
       <Location />
       <Footer />
-      <WhatsAppButton />
+      {/* <WhatsAppButton /> */}
     </main>
   );
 }
