@@ -12,7 +12,7 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
   const { t } = useLanguage();
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden" id="home">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image

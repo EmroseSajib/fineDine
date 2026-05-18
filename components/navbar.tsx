@@ -10,7 +10,7 @@ const navLinks = [
   { key: "about", href: "#about" },
   { key: "menu", href: "#menu" },
   { key: "gallery", href: "#gallery" },
-  { key: "contact", href: "#contact" },
+  { key: "contact", href: "#location" },
 ];
 
 export function Navbar() {
