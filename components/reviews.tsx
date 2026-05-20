@@ -1,40 +1,40 @@
-"use client"
+"use client";
 
-import { useEffect, useRef, useState, useCallback } from "react"
-import { useLanguage } from "@/context/language-context"
-import { useScrollReveal } from "@/hooks/use-scroll-reveal"
-import reviewsData from "@/data/reviews.json"
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { useLanguage } from "@/context/language-context";
+import reviewsData from "@/data/reviews.json";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export function Reviews() {
-  const { lang, t } = useLanguage()
-  const { ref, isVisible } = useScrollReveal(0.1)
-  const [current, setCurrent] = useState(0)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const { lang, t } = useLanguage();
+  const { ref, isVisible } = useScrollReveal(0.1);
+  const [current, setCurrent] = useState(0);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const goTo = useCallback((index: number) => {
-    setCurrent(index)
-  }, [])
+    setCurrent(index);
+  }, []);
 
   const next = useCallback(() => {
-    setCurrent((prev) => (prev + 1) % reviewsData.length)
-  }, [])
+    setCurrent((prev) => (prev + 1) % reviewsData.length);
+  }, []);
 
   const prev = useCallback(() => {
-    setCurrent((prev) => (prev - 1 + reviewsData.length) % reviewsData.length)
-  }, [])
+    setCurrent((prev) => (prev - 1 + reviewsData.length) % reviewsData.length);
+  }, []);
 
   useEffect(() => {
-    intervalRef.current = setInterval(next, 5000)
+    intervalRef.current = setInterval(next, 5000);
     return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [next])
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [next]);
 
   const resetTimer = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    intervalRef.current = setInterval(next, 5000)
-  }
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(next, 5000);
+  };
 
   return (
     <section className="relative py-24 lg:py-32">
@@ -79,12 +79,16 @@ export function Reviews() {
                       : "translate-y-8 opacity-0"
                 }`}
               >
-                <p className="font-serif text-lg leading-relaxed italic text-foreground/80 md:text-xl lg:text-2xl">
+                <p className="font-serif text-lg leading-relaxed italic text-foreground/80 md:text-xl lg:text-xl">
                   {`"${review.text[lang as "nl" | "en"]}"`}
                 </p>
                 <div className="mt-8 flex gap-1">
                   {Array.from({ length: review.rating }).map((_, i) => (
-                    <Star key={i} size={14} className="fill-primary text-primary" />
+                    <Star
+                      key={i}
+                      size={14}
+                      className="fill-primary text-primary"
+                    />
                   ))}
                 </div>
                 <p className="mt-3 text-sm font-medium tracking-wide text-primary">
@@ -95,9 +99,12 @@ export function Reviews() {
           </div>
 
           {/* Navigation */}
-          <div className="mt-12 flex items-center justify-center gap-6">
+          <div className="mt-14 flex items-center justify-center gap-6">
             <button
-              onClick={() => { prev(); resetTimer() }}
+              onClick={() => {
+                prev();
+                resetTimer();
+              }}
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="Previous review"
             >
@@ -107,16 +114,24 @@ export function Reviews() {
               {reviewsData.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => { goTo(index); resetTimer() }}
+                  onClick={() => {
+                    goTo(index);
+                    resetTimer();
+                  }}
                   className={`h-1.5 rounded-full transition-all duration-300 ${
-                    index === current ? "w-6 bg-primary" : "w-1.5 bg-muted-foreground/30"
+                    index === current
+                      ? "w-6 bg-primary"
+                      : "w-1.5 bg-muted-foreground/30"
                   }`}
                   aria-label={`Go to review ${index + 1}`}
                 />
               ))}
             </div>
             <button
-              onClick={() => { next(); resetTimer() }}
+              onClick={() => {
+                next();
+                resetTimer();
+              }}
               className="text-muted-foreground transition-colors hover:text-primary"
               aria-label="Next review"
             >
@@ -126,5 +141,5 @@ export function Reviews() {
         </div>
       </div>
     </section>
-  )
+  );
 }

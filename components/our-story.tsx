@@ -161,17 +161,20 @@ export function OurStory() {
 
               {/* PHILOSOPHY */}
               <div className="border-t border-white/10 pt-10">
-                <p className="text-white/80 italic leading-relaxed text-lg">
+                <p className="text-white/80 italic leading-relaxed ">
                   {t("story.ending")}
                 </p>
-                <p className="text-white/80 italic leading-relaxed text-lg">
+                <p className="text-white/80 italic leading-relaxed mt-2">
                   {t("story.invitation")}
                 </p>
+                <p className="text-white/80 italic leading-relaxed mt-2 ">
+                  {t("story.invitation2")}
+                </p>
 
-                <p className="mt-6 text-primary font-serif italic text-xl">
+                <p className="mt-6 text-primary font-serif italic ">
                   {t("story.signtop")}
                 </p>
-                <p className=" text-primary font-serif italic text-xl">
+                <p className=" text-primary font-serif italic ">
                   {t("story.signature")}
                 </p>
               </div>
