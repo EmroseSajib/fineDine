@@ -18,7 +18,8 @@
 
       "intro": "Het verhaal van Aroma Amoris, ‘het kruid van de liefde’ in het Latijn, is geworteld in twee werelden. Bangladesh is onze bodem: rijk, warm en gul. Nederland is ons bladerdak: gestructureerd, verfijnd en naar boven gericht. Wij horen bij beide, en beide horen bij ons. De Nederlandse fine diningkeuken is een ode aan precisie: een paar zorgvuldig gekozen ingrediënten, elk met de ruimte om in volle glorie te schitteren. De Bengaalse keuken is een viering van overvloed: gedeelde gerechten, gelaagde smaken, een vreugdevol samenspel. Bij Aroma Amoris komen deze twee identiteiten samen op het bord.",
 
-      "concept": "Onze oprichters Aprul Manik, Fahim Ahmed en Esrat Choudhry delen een Bengaalse achtergrond en een diepe liefde voor gastronomie en gastvrijheid.Aprul Manik droomde altijd om de Bangladeshi keuken op een nieuw manier met zijn gemeenschap te delen. Vanuit die visie ontstond het idee om de Bangladeshi en Europese keuken te verenigen binnen een fine diningervaring. In 2023 werkte hij samen met Chef Fahim Ahmed om dit concept vorm te geven het begin van wat later Aroma Amoris zou worden.",
+      "concept": "Onze oprichters Aprul Manik, Fahim Ahmed en Esrat Choudhry delen een Bengaalse achtergrond en een diepe liefde voor gastronomie en gastvrijheid.",
+      "concept2": "Aprul Manik droomde altijd om de Bangladeshi keuken op een nieuw manier met zijn gemeenschap te delen. Vanuit die visie ontstond het idee om de Bangladeshi en Europese keuken te verenigen binnen een fine diningervaring. In 2023 werkte hij samen met Chef Fahim Ahmed om dit concept vorm te geven het begin van wat later Aroma Amoris zou worden.",
 
       "aprul": {
         "name": "Aprul Manik",
@@ -69,7 +70,7 @@
       "phone": "Telefoon",
       "guests": "Aantal Gasten",
       "numberofCourse": "Aantal gangen (optioneel)",
-      "selectCourse": "Kies een gang",
+      "selectCourse": "Kies uw menu",
       "courses": "Gangen",
       "dietary": "Dieetwensen",
       "notes": "Aanvullende opmerkingen",
@@ -130,10 +131,10 @@
     "story": {
       "title": "Our Story",
 
-      "intro": "The story of Aroma Amoris, “the spice of love” in Latin, is rooted in two worlds. Bangladesh is our soil: rich, warm, and generous. The Netherlands is our canopy: structured, refined, and reaching upward. We belong to both, and both belong to us. Dutch fine dining is an ode to precision: a handful of carefully selected ingredients, each allowed to shine in its purest form. Bengali cuisine is a celebration of abundance: shared dishes, layered flavours, a joyful harmony. At Aroma Amoris, these two identities meet on the plate",
+      "intro": "The story of Aroma Amoris, “the spice of love” in Latin, is rooted in two worlds. Bangladesh is our soil: rich, warm, and generous. The Netherlands is our canopy: structured, refined, and reaching upward. We belong to both, and both belong to us. Dutch fine dining is an ode to precision: a handful of carefully selected ingredients, each allowed to shine in its purest form. Bengali cuisine is a celebration of abundance: shared dishes, layered flavours, a joyful harmony. At Aroma Amoris, these two identities meet on the plate.",
 
-      "concept": "Our founders Aprul Manik, Fahim Ahmed, and Esrat Choudhry share a Bangladeshi heritage and a deep devotionto gastronomy and hospitality.Aprul Manik had long envisioned sharing the Bangladeshi culinary tradition with his community in a new and elevated way. From this vision emerged the idea to unite Bangladeshi and European cuisine within a refined fine dining experience. In 2023, he collaborated with Chef Fahim Ahmed to bring this concept to life, the first step toward what would become Aroma Amoris.",
-
+      "concept": "Our founders Aprul Manik, Fahim Ahmed, and Esrat Choudhry share a Bangladeshi heritage and a deep devotionto gastronomy and hospitality.",
+      "concept2": "Aprul Manik had long envisioned sharing the Bangladeshi culinary tradition with his community in a new and elevated way. From this vision emerged the idea to unite Bangladeshi and European cuisine within a refined fine dining experience. In 2023, he collaborated with Chef Fahim Ahmed to bring this concept to life, the first step toward what would become Aroma Amoris.",
       "aprul": {
         "name": "Aprul Manik",
         "role": "",
@@ -184,7 +185,7 @@
       "phone": "Phone",
       "guests": "Number of Guests",
       "numberofCourse": "Number of courses (optional) ",
-      "selectCourse": "Select Courses",
+      "selectCourse": "Select menu",
       "courses": "Courses",
       "typeof": "Type or choice",
       "dietary": "Dietary preferences",

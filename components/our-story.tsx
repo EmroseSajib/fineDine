@@ -88,15 +88,8 @@ export function OurStory() {
                 <p className="text-white/70 leading-relaxed">
                   {showMore
                     ? t("story.intro")
-                    : `${t("story.intro").slice(0, 180)}...`}
+                    : `${t("story.intro").slice(0, 800)}...`}
                 </p>
-
-                <button
-                  onClick={() => setShowMore(!showMore)}
-                  className="mt-4 text-sm uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-1 hover:text-white transition"
-                >
-                  {showMore ? "Read Less" : "Read More"}
-                </button>
               </div>
 
               {/* 👇 Full text desktop */}
@@ -116,8 +109,11 @@ export function OurStory() {
                 {/* <h3 className="font-serif text-xl uppercase tracking-wide text-primary/90 mb-3">
                   Concept
                 </h3> */}
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-white/70 leading-relaxed mb-2">
                   {t("story.concept")}
+                </p>
+                <p className="text-white/70 leading-relaxed">
+                  {t("story.concept2")}
                 </p>
               </div>
 
@@ -182,6 +178,12 @@ export function OurStory() {
             </div>
           </div>
         </div>
+        <button
+          onClick={() => setShowMore(!showMore)}
+          className="block md:hidden mt-4 text-sm uppercase tracking-[0.2em] text-primary border-b border-primary/40 pb-1 hover:text-white transition"
+        >
+          {showMore ? "Read Less" : "Read More"}
+        </button>
       </div>
     </section>
   );
