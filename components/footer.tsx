@@ -11,7 +11,7 @@ export function Footer() {
     { label: t("nav.about"), href: "#about" },
     { label: t("nav.menu"), href: "#menu" },
     { label: t("nav.gallery"), href: "#gallery" },
-    { label: t("nav.contact"), href: "#contact" },
+    { label: t("nav.contact"), href: "#location" },
   ];
 
   return (
