@@ -166,7 +166,7 @@ export function Reservation() {
                 htmlFor="name"
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
-                {t("reservation.name")}
+                {t("reservation.name")} <span className="text-red-500">*</span>
               </label>
 
               <input
@@ -185,6 +185,7 @@ export function Reservation() {
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
                 {t("reservation.email")}
+                <span className="text-red-500">*</span>
               </label>
 
               <input
@@ -203,6 +204,7 @@ export function Reservation() {
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
                 {t("reservation.phone")}
+                <span className="text-red-500">*</span>
               </label>
 
               <input
@@ -220,7 +222,8 @@ export function Reservation() {
                 htmlFor="guests"
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
-                {t("reservation.guests")}
+                {t("reservation.guests")}{" "}
+                <span className="text-red-500">*</span>
               </label>
 
               <select
@@ -272,6 +275,7 @@ export function Reservation() {
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
                 {t("reservation.date")}
+                <span className="text-red-500">*</span>
               </label>
 
               <input
@@ -290,7 +294,7 @@ export function Reservation() {
                 htmlFor="time"
                 className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
               >
-                {t("reservation.time")}
+                {t("reservation.time")} <span className="text-red-500">*</span>
               </label>
 
               <select
@@ -328,7 +332,7 @@ export function Reservation() {
               htmlFor="dietaryPreferences"
               className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
             >
-              {t("reservation.dietary")}
+              {t("reservation.dietary")} <span className="text-red-500">*</span>
             </label>
 
             <input
@@ -339,6 +343,7 @@ export function Reservation() {
               value={dietaryPreferences}
               onChange={(e) => setDietaryPreferences(e.target.value)}
               placeholder={`${t("reservation.typeof")}: Vegetarian, Vegan, Halal...`}
+              required
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
 
@@ -355,7 +360,7 @@ export function Reservation() {
               htmlFor="allergies"
               className="text-xs font-medium tracking-wider uppercase text-muted-foreground"
             >
-              {t("reservation.allergy")}
+              {t("reservation.allergy")} <span className="text-red-500">*</span>
             </label>
 
             <input
@@ -366,6 +371,7 @@ export function Reservation() {
               value={allergyInput}
               onChange={(e) => setAllergyInput(e.target.value)}
               placeholder={`${t("reservation.typeof")}: Gluten, Milk, Nuts...`}
+              required
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
             />
 
