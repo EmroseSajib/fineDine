@@ -39,10 +39,11 @@ export function Reservation() {
 
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+  const [dietaryError, setDietaryError] = useState("");
   const [dietaryPreferences, setDietaryPreferences] = useState("");
   const [allergyInput, setAllergyInput] = useState("");
   const [marketingConsent, setMarketingConsent] = useState(false);
-
+  const [allergyError, setAllergyError] = useState("");
   const today = new Date().toISOString().split("T")[0];
 
   const allergyString = useMemo(() => {
@@ -55,6 +56,18 @@ export function Reservation() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!allergyInput.trim()) {
+      setAllergyError(t("reservation.allergyError"));
+      return;
+    }
+    if (!dietaryPreferences.trim()) {
+      setDietaryError(t("reservation.dietaryError"));
+      // console.log("Allergy String:"); // Debugging line
+      return;
+    }
+
+    setAllergyError("");
+    setDietaryError("");
 
     setStatus("sending");
     setErrorMessage("");
@@ -341,11 +354,24 @@ export function Reservation() {
               type="text"
               list="diet-suggestions"
               value={dietaryPreferences}
-              onChange={(e) => setDietaryPreferences(e.target.value)}
+              onChange={(e) => {
+                setDietaryPreferences(e.target.value);
+
+                if (e.target.value.trim()) {
+                  setDietaryError("");
+                }
+              }}
               placeholder={`${t("reservation.typeof")}: Vegetarian, Vegan, Halal...`}
-              required
-              className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
+              className={`border-b bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none transition-colors ${
+                dietaryError
+                  ? "border-red-500"
+                  : "border-border focus:border-foreground"
+              }`}
             />
+
+            {dietaryError && (
+              <p className="mt-1 text-sm text-red-500">{dietaryError}</p>
+            )}
 
             <datalist id="diet-suggestions">
               {DIET_OPTIONS.map((diet) => (
@@ -369,11 +395,24 @@ export function Reservation() {
               type="text"
               list="allergy-suggestions"
               value={allergyInput}
-              onChange={(e) => setAllergyInput(e.target.value)}
+              onChange={(e) => {
+                setAllergyInput(e.target.value);
+
+                if (e.target.value.trim()) {
+                  setAllergyError("");
+                }
+              }}
               placeholder={`${t("reservation.typeof")}: Gluten, Milk, Nuts...`}
-              required
-              className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors"
+              className={`border-b bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:outline-none transition-colors ${
+                allergyError
+                  ? "border-red-500"
+                  : "border-border focus:border-foreground"
+              }`}
             />
+
+            {allergyError && (
+              <p className="mt-1 text-sm text-red-500">{allergyError}</p>
+            )}
 
             <datalist id="allergy-suggestions">
               {ALLERGY_OPTIONS.map((item) => (
