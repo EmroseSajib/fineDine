@@ -81,7 +81,7 @@ export function Location() {
                     {t("location.telephone")}
                   </h3>
                   <a
-                    href="tel:+31201234567"
+                    href="tel:+31743579155"
                     className="mt-1 block text-sm text-muted-foreground transition-colors hover:text-primary"
                   >
                     {t("location.phone")}
