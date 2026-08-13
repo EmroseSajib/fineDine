@@ -178,13 +178,14 @@ export function Navbar() {
           </div>
 
           {/* CTA */}
-          <a
-            href="#contact"
-            onClick={() => setMobileOpen(false)}
+          <button
+            // href="#contact"
+            // onClick={() => setMobileOpen(false)}
+            onClick={() => setOpen(true)}
             className="mt-8 rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-8 py-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
           >
             {t("nav.reserve")}
-          </a>
+          </button>
         </div>
       </div>
 
