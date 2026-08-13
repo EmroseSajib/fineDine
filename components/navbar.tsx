@@ -98,12 +98,13 @@ export function Navbar() {
             </div>
 
             {/* CTA */}
-            <a
-              href="#contact"
+            <button
+              // href="#contact"
+              onClick={() => setOpen(true)}
               className="rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-6 py-2.5 text-sm font-medium tracking-[0.15em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
             >
               {t("nav.reserve")}
-            </a>
+            </button>
           </div>
 
           {/* MOBILE BUTTON */}
@@ -189,12 +190,12 @@ export function Navbar() {
 
       {/* RESERVATION MODAL */}
       {open && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
-          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl">
+        <div className="fixed  inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
+          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10  shadow-2xl">
             {/* CLOSE */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/70 text-white transition-all hover:bg-[#FFD700] hover:text-black"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-red-500/70 text-white transition-all hover:bg-[#FFD700] hover:text-black"
             >
               ✕
             </button>

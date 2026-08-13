@@ -7,7 +7,7 @@ import { Location } from "@/components/location";
 import { MenuSection } from "@/components/menu-section";
 import { Navbar } from "@/components/navbar";
 import { OurStory } from "@/components/our-story";
-import { Reservation } from "@/components/reservation";
+import Reservation from "@/components/reservation";
 import { Reviews } from "@/components/reviews";
 import { useEffect, useState } from "react";
 
