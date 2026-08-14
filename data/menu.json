@@ -7,7 +7,7 @@
         "nl": "Geserveerd met amuse en brood",
         "en": "Served with an amuse-bouche and bread"
       },
-      "price": "€ 52,95",
+      "price": "€ 54,95",
       "image": "/images/menu/surprise-3.jpg"
     },
     {
@@ -17,7 +17,7 @@
         "nl": "Geserveerd met amuse en brood",
         "en": "Served with an amuse-bouche and bread"
       },
-      "price": "€ 62,95",
+      "price": "€ 64,95",
       "image": "/images/menu/surprise-4.jpg"
     },
     {
@@ -27,7 +27,7 @@
         "nl": "Geserveerd met amuse en brood",
         "en": "Served with an amuse-bouche and bread"
       },
-      "price": "€ 72,95",
+      "price": "€ 74,95",
       "image": "/images/menu/surprise-5.jpg"
     },
     {
@@ -37,7 +37,7 @@
         "nl": "Geserveerd met amuse en brood",
         "en": "Served with an amuse-bouche and bread"
       },
-      "price": "€ 39,50"
+      "price": "€ 41,50"
     },
     {
       "id": "alc2",
@@ -46,7 +46,7 @@
         "nl": "Geserveerd met amuse en brood (bij vis hoofdgerecht is er ongeveer 45 min wachttijd)",
         "en": "Served with an amuse-bouche and bread (for the fish main course there is an approximate 45-minute waiting time)"
       },
-      "price": "€ 39,50"
+      "price": "€ 41,50"
     },
     {
       "id": "sd1",
@@ -55,7 +55,7 @@
         "en": "Bread Rolls with Butter and Oil"
       },
       "description": { "nl": "Bijgerecht", "en": "Side Dish" },
-      "price": "€ 5,95"
+      "price": "€ 6,95"
     }
   ],
 

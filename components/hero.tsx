@@ -3,6 +3,7 @@
 import { useLanguage } from "@/context/language-context";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 
 interface HeroSectionProps {
   isLoaded: boolean;
@@ -10,6 +11,7 @@ interface HeroSectionProps {
 
 export default function Hero({ isLoaded }: HeroSectionProps) {
   const { t } = useLanguage();
+  const [open, setOpen] = useState(false);
 
   return (
     <section className="relative w-full h-screen overflow-hidden" id="home">
@@ -66,10 +68,11 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
 
           {/* Button */}
           <button
-            onClick={() => {
-              const section = document.getElementById("contact");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
+            // onClick={() => {
+            //   const section = document.getElementById("contact");
+            //   section?.scrollIntoView({ behavior: "smooth" });
+            // }}
+            onClick={() => setOpen(true)}
             className="mt-8 px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary/80 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             {t("hero.table")}
@@ -81,6 +84,27 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
           <ChevronDown className="w-8 h-8 text-white" />
         </div>
       </div>
+      {/* RESERVATION MODAL */}
+      {open && (
+        <div className="fixed  inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
+          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10  shadow-2xl">
+            {/* CLOSE */}
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-red-500/70 text-white transition-all hover:bg-[#FFD700] hover:text-black"
+            >
+              ✕
+            </button>
+
+            {/* IFRAME */}
+            <iframe
+              src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
+              className="h-[85vh] w-full"
+              style={{ border: "none" }}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
