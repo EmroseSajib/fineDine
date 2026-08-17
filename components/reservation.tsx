@@ -151,6 +151,9 @@ export function Reservation() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    // -----------------------------
+    // Validation
+    // -----------------------------
     if (!dietaryPreferences.trim()) {
       setDietaryError(t("reservation.dietaryError"));
       return;
@@ -169,17 +172,24 @@ export function Reservation() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
+    // -----------------------------
+    // Get form values
+    // -----------------------------
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
 
     const guests = Number(formData.get("guests") || 1);
-    const date = String(formData.get("date") || "");
-    const time = String(formData.get("time") || "");
+
+    const date = String(formData.get("date") || "").trim();
+    const time = String(formData.get("time") || "").trim();
 
     const message = String(formData.get("message") || "").trim();
     const courses = String(formData.get("courses") || "").trim();
 
+    // -----------------------------
+    // Build reservation message
+    // -----------------------------
     const coursesText = courses ? `Number of courses: ${courses}` : "";
 
     const dietaryText = dietaryPreferences.trim()
@@ -194,15 +204,16 @@ export function Reservation() {
       .filter(Boolean)
       .join(" | ");
 
-    /**
-     * Taurus uses UTF-16LE → Base64
-     */
+    // -----------------------------
+    // Taurus UTF-16LE → Base64
+    // -----------------------------
     const encodeTaurus = (value: string): string => {
       const utf16 = new Uint8Array(value.length * 2);
 
       for (let i = 0; i < value.length; i++) {
         const code = value.charCodeAt(i);
 
+        // UTF-16 Little Endian
         utf16[i * 2] = code & 0xff;
         utf16[i * 2 + 1] = code >> 8;
       }
@@ -216,35 +227,72 @@ export function Reservation() {
       return btoa(binary);
     };
 
-    // Encode the parameters that Taurus requires as Base64
+    // -----------------------------
+    // Encode Taurus fields
+    // -----------------------------
     const encodedEmail = encodeTaurus(email);
     const encodedPhone = encodeTaurus(phone);
     const encodedMessage = encodeTaurus(note);
-    const encodedName = encodeTaurus(name);
 
-    // Taurus: YYYYMMDD
+    // -----------------------------
+    // Taurus date/time format
+    // -----------------------------
+    // YYYY-MM-DD → YYYYMMDD
     const formattedDate = date.replace(/-/g, "");
 
-    // Taurus: HH:mm:ss.000
+    // HH:mm → HH:mm:ss.000
     const formattedTime = `${time}:00.000`;
 
-    /**
-     * Taurus parameters
-     */
+    // -----------------------------
+    // Taurus parameters
+    // -----------------------------
     const BedrijfsGUID = "6e0889dc3ea244c3bb87adacb5278f0e";
-    const nSelectedArrangementID = 0;
-    const bZetOpWachtlijst = 0;
-    const bZetOpAanvraag = 0;
-    const Goedkeuring = marketingConsent ? 1 : 0;
 
-    const tGeselecteerdeEindTijd = "000000";
-    const tGeselecteerdeActiviteitTijd = "000000";
-    const sGeselecteerdeActiviteitTijdTekst = "";
-    const sVervolgkeuzes = "";
-    const Bron = 8;
+    const nSelectedArrangementID = 0;
+
+    const bZetOpWachtlijst = 0;
+
+    const bZetOpAanvraag = 0;
+
+    const Goedkeuring = marketingConsent ? 1 : 0;
 
     const sNation = "EN";
 
+    /*
+     * These values follow the URL format
+     * that you confirmed is working.
+     */
+    const tGeselecteerdeEindTijd = "0";
+
+    const tGeselecteerdeActiviteitTijd = "0";
+
+    const sGeselecteerdeActiviteitTijdTekst = "0";
+
+    const sVervolgkeuzes = "1";
+
+    const Bron = 1;
+
+    // -----------------------------
+    // Validate allergy string
+    // -----------------------------
+    console.log("Allergy string:", allergyString);
+    console.log("Allergy string length:", allergyString.length);
+
+    if (allergyString.length !== 15) {
+      console.error(
+        "Invalid allergyString. Expected 15 characters:",
+        allergyString,
+      );
+
+      setStatus("error");
+      setErrorMessage("Invalid allergy information. Please try again.");
+
+      return;
+    }
+
+    // -----------------------------
+    // Build Taurus URL
+    // -----------------------------
     const apiUrl =
       `https://reserveereenvoudig.nl/AddReservering/` +
       `${BedrijfsGUID}/` +
@@ -260,14 +308,36 @@ export function Reservation() {
       `${bZetOpWachtlijst}/` +
       `${bZetOpAanvraag}/` +
       `${Goedkeuring}/` +
-      `0/` +
-      `0/` +
-      `0/` +
-      `1/` +
+      `${tGeselecteerdeEindTijd}/` +
+      `${tGeselecteerdeActiviteitTijd}/` +
+      `${sGeselecteerdeActiviteitTijdTekst}/` +
+      `${sVervolgkeuzes}/` +
+      `${Bron}/` +
       `${allergyString}`;
 
+    // -----------------------------
+    // Debug
+    // -----------------------------
     console.log("Taurus URL:", apiUrl);
 
+    console.log("Taurus reservation data:", {
+      name,
+      email,
+      phone,
+      guests,
+      date,
+      time,
+      formattedDate,
+      formattedTime,
+      note,
+      allergyString,
+      allergyLength: allergyString.length,
+      marketingConsent,
+    });
+
+    // -----------------------------
+    // Send reservation
+    // -----------------------------
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -280,22 +350,36 @@ export function Reservation() {
 
       const result = await response.json();
 
+      console.log("Taurus HTTP status:", response.status);
       console.log("Taurus response:", result);
 
+      // -----------------------------
+      // HTTP error
+      // -----------------------------
       if (!response.ok) {
         throw new Error(
-          result?.Melding || result?.message || "Reservation failed",
+          result?.Melding ||
+            result?.message ||
+            result?.fault?.faultstring ||
+            "Reservation failed",
         );
       }
 
+      // -----------------------------
+      // Taurus API error
+      // -----------------------------
       if (result?.Status === "FOUT") {
         throw new Error(result?.Melding || "Reservation failed");
       }
 
+      // -----------------------------
+      // Successful reservation
+      // -----------------------------
       if (result?.Status === "GOED") {
         setStatus("success");
 
         form.reset();
+
         setDietaryPreferences("");
         setAllergyInput("");
         setMarketingConsent(false);
@@ -307,6 +391,9 @@ export function Reservation() {
         return;
       }
 
+      // -----------------------------
+      // Unknown response
+      // -----------------------------
       throw new Error("Unexpected response from reservation API");
     } catch (error) {
       console.error("Reservation error:", error);
