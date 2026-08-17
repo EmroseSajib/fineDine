@@ -260,11 +260,10 @@ export function Reservation() {
       `${bZetOpWachtlijst}/` +
       `${bZetOpAanvraag}/` +
       `${Goedkeuring}/` +
-      `${tGeselecteerdeEindTijd}/` +
-      `${tGeselecteerdeActiviteitTijd}/` +
-      `${sGeselecteerdeActiviteitTijdTekst}/` +
-      `${sVervolgkeuzes}/` +
-      `${Bron}/` +
+      `0/` +
+      `0/` +
+      `0/` +
+      `1/` +
       `${allergyString}`;
 
     console.log("Taurus URL:", apiUrl);
