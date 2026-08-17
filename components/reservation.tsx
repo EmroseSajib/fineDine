@@ -169,7 +169,7 @@ export function Reservation() {
       `${encodedEmail}/` +
       `${encodedPhone}/` +
       `${encodedMessage}/` +
-      `Taurus/` +
+      `${encodedName}/` +
       `${sNation}/` +
       `${bZetOpWachtlijst}/` +
       `${bZetOpAanvraag}/` +
@@ -563,7 +563,12 @@ export function Reservation() {
               className="border-b border-border bg-transparent px-0 py-3 text-foreground placeholder:text-muted-foreground/50 focus:border-foreground focus:outline-none transition-colors resize-none"
             />
           </div>
-
+          <p className="mt-2 text-sm text-red-700">
+            {t("reservation.contactReservation")}{" "}
+            <a href="tel:0743579155" className="font-semibold underline">
+              0743579155
+            </a>
+          </p>
           {/* Marketing */}
           <div className="mt-8">
             <label className="flex items-center gap-3 text-sm text-muted-foreground">

@@ -98,13 +98,13 @@ export function Navbar() {
             </div>
 
             {/* CTA */}
-            <button
-              // href="#contact"
-              onClick={() => setOpen(true)}
+            <a
+              href="#contact"
+              // onClick={() => setOpen(true)}
               className="rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-6 py-2.5 text-sm font-medium tracking-[0.15em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
             >
               {t("nav.reserve")}
-            </button>
+            </a>
           </div>
 
           {/* MOBILE BUTTON */}
@@ -178,14 +178,14 @@ export function Navbar() {
           </div>
 
           {/* CTA */}
-          <button
-            // href="#contact"
-            // onClick={() => setMobileOpen(false)}
-            onClick={() => setOpen(true)}
+          <a
+            href="#contact"
+            onClick={() => setMobileOpen(false)}
+            // onClick={() => setOpen(true)}
             className="mt-8 rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-8 py-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
           >
             {t("nav.reserve")}
-          </button>
+          </a>
         </div>
       </div>
 

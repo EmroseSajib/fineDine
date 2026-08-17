@@ -68,11 +68,11 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
 
           {/* Button */}
           <button
-            // onClick={() => {
-            //   const section = document.getElementById("contact");
-            //   section?.scrollIntoView({ behavior: "smooth" });
-            // }}
-            onClick={() => setOpen(true)}
+            onClick={() => {
+              const section = document.getElementById("contact");
+              section?.scrollIntoView({ behavior: "smooth" });
+            }}
+            // onClick={() => setOpen(true)}
             className="mt-8 px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary/80 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             {t("hero.table")}

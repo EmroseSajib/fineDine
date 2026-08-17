@@ -66,6 +66,7 @@
     "reservation": {
       "label": "Reservering",
       "title": "Reserveer een tafel",
+      "contactReservation": "Mocht u problemen ondervinden met uw reservering, neem dan contact met ons op via",
       "name": "Naam",
       "email": "E-mail",
       "phone": "Telefoon",
@@ -184,6 +185,7 @@
     "reservation": {
       "label": "Reservation",
       "title": "Reserve Your Table",
+      "contactReservation": "If you experience any problems with your reservation, please contact us at",
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
