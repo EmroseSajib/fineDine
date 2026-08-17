@@ -278,18 +278,6 @@ export function Reservation() {
     console.log("Allergy string:", allergyString);
     console.log("Allergy string length:", allergyString.length);
 
-    if (allergyString.length !== 15) {
-      console.error(
-        "Invalid allergyString. Expected 15 characters:",
-        allergyString,
-      );
-
-      setStatus("error");
-      setErrorMessage("Invalid allergy information. Please try again.");
-
-      return;
-    }
-
     // -----------------------------
     // Build Taurus URL
     // -----------------------------
