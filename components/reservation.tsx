@@ -172,6 +172,7 @@ export function Reservation() {
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
+
     const guests = Number(formData.get("guests") || 1);
     const date = String(formData.get("date") || "");
     const time = String(formData.get("time") || "");
@@ -194,13 +195,9 @@ export function Reservation() {
       .join(" | ");
 
     /**
-     * Taurus example uses UTF-16LE → Base64
+     * Taurus uses UTF-16LE → Base64
      */
-    const encodeTaurus = (value: string) => {
-      const bytes = new Uint8Array(new TextEncoder().encode(value));
-
-      // UTF-8 is NOT the encoding used by the Taurus example.
-      // Convert JavaScript Unicode string to UTF-16LE.
+    const encodeTaurus = (value: string): string => {
       const utf16 = new Uint8Array(value.length * 2);
 
       for (let i = 0; i < value.length; i++) {
@@ -219,9 +216,11 @@ export function Reservation() {
       return btoa(binary);
     };
 
+    // Encode the parameters that Taurus requires as Base64
     const encodedEmail = encodeTaurus(email);
     const encodedPhone = encodeTaurus(phone);
     const encodedMessage = encodeTaurus(note);
+    const encodedName = encodeTaurus(name);
 
     // Taurus: YYYYMMDD
     const formattedDate = date.replace(/-/g, "");
@@ -229,19 +228,43 @@ export function Reservation() {
     // Taurus: HH:mm:ss.000
     const formattedTime = `${time}:00.000`;
 
+    /**
+     * Taurus parameters
+     */
+    const BedrijfsGUID = "6e0889dc3ea244c3bb87adacb5278f0e";
+    const nSelectedArrangementID = 0;
+    const bZetOpWachtlijst = 0;
+    const bZetOpAanvraag = 0;
+    const Goedkeuring = marketingConsent ? 1 : 0;
+
+    const tGeselecteerdeEindTijd = "000000";
+    const tGeselecteerdeActiviteitTijd = "000000";
+    const sGeselecteerdeActiviteitTijdTekst = "";
+    const sVervolgkeuzes = "";
+    const Bron = 8;
+
+    const sNation = "EN";
+
     const apiUrl =
       `https://reserveereenvoudig.nl/AddReservering/` +
-      `6e0889dc3ea244c3bb87adacb5278f0e/` +
-      `0/` +
+      `${BedrijfsGUID}/` +
+      `${nSelectedArrangementID}/` +
       `${formattedTime}/` +
       `${formattedDate}/` +
       `${guests}/` +
       `${encodedEmail}/` +
       `${encodedPhone}/` +
       `${encodedMessage}/` +
-      `Taurus/` +
-      `EN/` +
-      `0/0/1/0/0/0/0/1/` +
+      `${encodedName}/` +
+      `${sNation}/` +
+      `${bZetOpWachtlijst}/` +
+      `${bZetOpAanvraag}/` +
+      `${Goedkeuring}/` +
+      `${tGeselecteerdeEindTijd}/` +
+      `${tGeselecteerdeActiviteitTijd}/` +
+      `${sGeselecteerdeActiviteitTijdTekst}/` +
+      `${sVervolgkeuzes}/` +
+      `${Bron}/` +
       `${allergyString}`;
 
     console.log("Taurus URL:", apiUrl);
