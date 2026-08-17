@@ -50,110 +50,21 @@ export function Reservation() {
   const allergyString = useMemo(() => {
     const text = allergyInput.toLowerCase();
 
-    return ALLERGY_OPTIONS.map((item) =>
+    const result = ALLERGY_OPTIONS.map((item) =>
       text.includes(item.label.toLowerCase()) ? "1" : "0",
-    ).join("");
+    );
+
+    // Make sure Taurus always receives exactly 15 positions
+    while (result.length < 15) {
+      result.push("0");
+    }
+
+    return result.slice(0, 15).join("");
   }, [allergyInput]);
-
-  // const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   if (!dietaryPreferences.trim()) {
-  //     setDietaryError(t("reservation.dietaryError"));
-  //     // console.log("Allergy String:"); // Debugging line
-  //     return;
-  //   }
-  //   if (!allergyInput.trim()) {
-  //     setAllergyError(t("reservation.allergyError"));
-  //     return;
-  //   }
-
-  //   setAllergyError("");
-  //   setDietaryError("");
-
-  //   setStatus("sending");
-  //   setErrorMessage("");
-
-  //   const form = e.currentTarget;
-  //   const formData = new FormData(form);
-
-  //   const message = String(formData.get("message") || "").trim();
-  //   const courses = String(formData.get("courses") || "").trim();
-
-  //   const coursesText = courses ? `Number of courses: ${courses}` : "";
-
-  //   const dietaryText = dietaryPreferences.trim()
-  //     ? `Dietary preferences: ${dietaryPreferences.trim()}`
-  //     : "";
-
-  //   const allergiesText = allergyInput.trim()
-  //     ? `Allergies: ${allergyInput.trim()}`
-  //     : "";
-
-  //   const note = [coursesText, dietaryText, allergiesText, message]
-  //     .filter(Boolean)
-  //     .join(" | ");
-
-  //   const payload = {
-  //     name: String(formData.get("name") || "").trim(),
-  //     email: String(formData.get("email") || "").trim(),
-  //     phone: String(formData.get("phone") || "").trim(),
-  //     guests: Number(formData.get("guests") || 1),
-  //     date: String(formData.get("date") || ""),
-  //     time: String(formData.get("time") || ""),
-  //     message: note,
-  //     nation: "EN",
-  //     arrangementId: 0,
-  //     waitingList: 0,
-  //     requestList: 0,
-  //     approval: marketingConsent ? 1 : 0,
-  //     allergens: allergyString,
-  //   };
-
-  //   try {
-  //     const response = await fetch("/api/reservation", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json; charset=UTF-8",
-  //         Accept: "application/json",
-  //       },
-  //       body: JSON.stringify(payload),
-  //     });
-
-  //     const result = await response.json();
-
-  //     if (!response.ok) {
-  //       throw new Error(result?.message || "Reservation failed");
-  //     }
-
-  //     setStatus("success");
-
-  //     form.reset();
-  //     setDietaryPreferences("");
-  //     setAllergyInput("");
-  //     setMarketingConsent(false);
-
-  //     setTimeout(() => {
-  //       setStatus("idle");
-  //     }, 5000);
-  //   } catch (error) {
-  //     setStatus("error");
-
-  //     setErrorMessage(
-  //       error instanceof Error ? error.message : "Something went wrong",
-  //     );
-
-  //     setTimeout(() => {
-  //       setStatus("idle");
-  //     }, 5000);
-  //   }
-  // };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // -----------------------------
-    // Validation
-    // -----------------------------
     if (!dietaryPreferences.trim()) {
       setDietaryError(t("reservation.dietaryError"));
       return;
@@ -172,24 +83,17 @@ export function Reservation() {
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // -----------------------------
-    // Get form values
-    // -----------------------------
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
     const phone = String(formData.get("phone") || "").trim();
 
     const guests = Number(formData.get("guests") || 1);
-
-    const date = String(formData.get("date") || "").trim();
-    const time = String(formData.get("time") || "").trim();
+    const date = String(formData.get("date") || "");
+    const time = String(formData.get("time") || "");
 
     const message = String(formData.get("message") || "").trim();
     const courses = String(formData.get("courses") || "").trim();
 
-    // -----------------------------
-    // Build reservation message
-    // -----------------------------
     const coursesText = courses ? `Number of courses: ${courses}` : "";
 
     const dietaryText = dietaryPreferences.trim()
@@ -204,16 +108,15 @@ export function Reservation() {
       .filter(Boolean)
       .join(" | ");
 
-    // -----------------------------
-    // Taurus UTF-16LE → Base64
-    // -----------------------------
+    /**
+     * Taurus uses UTF-16LE → Base64
+     */
     const encodeTaurus = (value: string): string => {
       const utf16 = new Uint8Array(value.length * 2);
 
       for (let i = 0; i < value.length; i++) {
         const code = value.charCodeAt(i);
 
-        // UTF-16 Little Endian
         utf16[i * 2] = code & 0xff;
         utf16[i * 2 + 1] = code >> 8;
       }
@@ -227,107 +130,59 @@ export function Reservation() {
       return btoa(binary);
     };
 
-    // -----------------------------
-    // Encode Taurus fields
-    // -----------------------------
+    // Encode the parameters that Taurus requires as Base64
     const encodedEmail = encodeTaurus(email);
     const encodedPhone = encodeTaurus(phone);
     const encodedMessage = encodeTaurus(note);
+    const encodedName = encodeTaurus(name);
 
-    // -----------------------------
-    // Taurus date/time format
-    // -----------------------------
-    // YYYY-MM-DD → YYYYMMDD
+    // Taurus: YYYYMMDD
     const formattedDate = date.replace(/-/g, "");
 
-    // HH:mm → HH:mm:ss.000
+    // Taurus: HH:mm:ss.000
     const formattedTime = `${time}:00.000`;
 
-    // -----------------------------
-    // Taurus parameters
-    // -----------------------------
+    /**
+     * Taurus parameters
+     */
     const BedrijfsGUID = "6e0889dc3ea244c3bb87adacb5278f0e";
-
     const nSelectedArrangementID = 0;
-
     const bZetOpWachtlijst = 0;
-
     const bZetOpAanvraag = 0;
-
     const Goedkeuring = marketingConsent ? 1 : 0;
+
+    const tGeselecteerdeEindTijd = "000000";
+    const tGeselecteerdeActiviteitTijd = "000000";
+    const sGeselecteerdeActiviteitTijdTekst = "";
+    const sVervolgkeuzes = "";
+    const Bron = 8;
 
     const sNation = "EN";
 
-    /*
-     * These values follow the URL format
-     * that you confirmed is working.
-     */
-    const tGeselecteerdeEindTijd = "0";
-
-    const tGeselecteerdeActiviteitTijd = "0";
-
-    const sGeselecteerdeActiviteitTijdTekst = "0";
-
-    const sVervolgkeuzes = "1";
-
-    const Bron = 1;
-
-    // -----------------------------
-    // Validate allergy string
-    // -----------------------------
-    console.log("Allergy string:", allergyString);
-    console.log("Allergy string length:", allergyString.length);
-
-    // -----------------------------
-    // Build Taurus URL
-    // -----------------------------
     const apiUrl =
-      "https://reserveereenvoudig.nl/AddReservering/6e0889dc3ea244c3bb87adacb5278f0e/0/14:00:00.000/20260814/2/bQBhAHQAaABpAGoAcwBrAGkAawBrAGUAcgB0ADIAMAAwADEAQABhAG8AbAAuAGMAbwBtAA==/MAA3ADQAMgA2ADcANAAxADQANAA=/VABlAHN0AG8AcABtAGUAcgBrAGkAbgBnAA==/VABhAHUAcgB1AHMA/EN/0/0/1/0/0/0/0/1/000000000000000";
-    // const apiUrl =
-    //   `https://reserveereenvoudig.nl/AddReservering/` +
-    //   `${BedrijfsGUID}/` +
-    //   `${nSelectedArrangementID}/` +
-    //   `${formattedTime}/` +
-    //   `${formattedDate}/` +
-    //   `${guests}/` +
-    //   `${encodedEmail}/` +
-    //   `${encodedPhone}/` +
-    //   `${encodedMessage}/` +
-    //   `Taurus/` +
-    //   `${sNation}/` +
-    //   `${bZetOpWachtlijst}/` +
-    //   `${bZetOpAanvraag}/` +
-    //   `${Goedkeuring}/` +
-    //   `${tGeselecteerdeEindTijd}/` +
-    //   `${tGeselecteerdeActiviteitTijd}/` +
-    //   `${sGeselecteerdeActiviteitTijdTekst}/` +
-    //   `${sVervolgkeuzes}/` +
-    //   `${Bron}/` +
-    //   `${allergyString}`;
+      `https://reserveereenvoudig.nl/AddReservering/` +
+      `${BedrijfsGUID}/` +
+      `${nSelectedArrangementID}/` +
+      `${formattedTime}/` +
+      `${formattedDate}/` +
+      `${guests}/` +
+      `${encodedEmail}/` +
+      `${encodedPhone}/` +
+      `${encodedMessage}/` +
+      `Taurus/` +
+      `${sNation}/` +
+      `${bZetOpWachtlijst}/` +
+      `${bZetOpAanvraag}/` +
+      `${Goedkeuring}/` +
+      `0/` +
+      `0/` +
+      `0/` +
+      `0/` +
+      `1/` +
+      `${allergyString}`;
 
-    // -----------------------------
-    // Debug
-    // -----------------------------
     console.log("Taurus URL:", apiUrl);
 
-    console.log("Taurus reservation data:", {
-      name,
-      email,
-      phone,
-      guests,
-      date,
-      time,
-      formattedDate,
-      formattedTime,
-      note,
-      allergyString,
-      allergyLength: allergyString.length,
-      marketingConsent,
-    });
-
-    // -----------------------------
-    // Send reservation
-    // -----------------------------
     try {
       const response = await fetch(apiUrl, {
         method: "POST",
@@ -340,36 +195,22 @@ export function Reservation() {
 
       const result = await response.json();
 
-      console.log("Taurus HTTP status:", response.status);
       console.log("Taurus response:", result);
 
-      // -----------------------------
-      // HTTP error
-      // -----------------------------
       if (!response.ok) {
         throw new Error(
-          result?.Melding ||
-            result?.message ||
-            result?.fault?.faultstring ||
-            "Reservation failed",
+          result?.Melding || result?.message || "Reservation failed",
         );
       }
 
-      // -----------------------------
-      // Taurus API error
-      // -----------------------------
       if (result?.Status === "FOUT") {
         throw new Error(result?.Melding || "Reservation failed");
       }
 
-      // -----------------------------
-      // Successful reservation
-      // -----------------------------
       if (result?.Status === "GOED") {
         setStatus("success");
 
         form.reset();
-
         setDietaryPreferences("");
         setAllergyInput("");
         setMarketingConsent(false);
@@ -381,9 +222,6 @@ export function Reservation() {
         return;
       }
 
-      // -----------------------------
-      // Unknown response
-      // -----------------------------
       throw new Error("Unexpected response from reservation API");
     } catch (error) {
       console.error("Reservation error:", error);
