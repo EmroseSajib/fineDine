@@ -294,26 +294,28 @@ export function Reservation() {
     // Build Taurus URL
     // -----------------------------
     const apiUrl =
-      `https://reserveereenvoudig.nl/AddReservering/` +
-      `${BedrijfsGUID}/` +
-      `${nSelectedArrangementID}/` +
-      `${formattedTime}/` +
-      `${formattedDate}/` +
-      `${guests}/` +
-      `${encodedEmail}/` +
-      `${encodedPhone}/` +
-      `${encodedMessage}/` +
-      `Taurus/` +
-      `${sNation}/` +
-      `${bZetOpWachtlijst}/` +
-      `${bZetOpAanvraag}/` +
-      `${Goedkeuring}/` +
-      `${tGeselecteerdeEindTijd}/` +
-      `${tGeselecteerdeActiviteitTijd}/` +
-      `${sGeselecteerdeActiviteitTijdTekst}/` +
-      `${sVervolgkeuzes}/` +
-      `${Bron}/` +
-      `${allergyString}`;
+      "https://reserveereenvoudig.nl/AddReservering/6e0889dc3ea244c3bb87adacb5278f0e/0/14:00:00.000/20260814/2/bQBhAHQAaABpAGoAcwBrAGkAawBrAGUAcgB0ADIAMAAwADEAQABhAG8AbAAuAGMAbwBtAA==/MAA3ADQAMgA2ADcANAAxADQANAA=/VABlAHN0AG8AcABtAGUAcgBrAGkAbgBnAA==/VABhAHUAcgB1AHMA/EN/0/0/1/0/0/0/0/1/000000000000000";
+    // const apiUrl =
+    //   `https://reserveereenvoudig.nl/AddReservering/` +
+    //   `${BedrijfsGUID}/` +
+    //   `${nSelectedArrangementID}/` +
+    //   `${formattedTime}/` +
+    //   `${formattedDate}/` +
+    //   `${guests}/` +
+    //   `${encodedEmail}/` +
+    //   `${encodedPhone}/` +
+    //   `${encodedMessage}/` +
+    //   `Taurus/` +
+    //   `${sNation}/` +
+    //   `${bZetOpWachtlijst}/` +
+    //   `${bZetOpAanvraag}/` +
+    //   `${Goedkeuring}/` +
+    //   `${tGeselecteerdeEindTijd}/` +
+    //   `${tGeselecteerdeActiviteitTijd}/` +
+    //   `${sGeselecteerdeActiviteitTijdTekst}/` +
+    //   `${sVervolgkeuzes}/` +
+    //   `${Bron}/` +
+    //   `${allergyString}`;
 
     // -----------------------------
     // Debug
