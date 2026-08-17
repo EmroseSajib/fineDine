@@ -255,7 +255,7 @@ export function Reservation() {
       `${encodedEmail}/` +
       `${encodedPhone}/` +
       `${encodedMessage}/` +
-      `${encodedName}/` +
+      `Taurus/` +
       `${sNation}/` +
       `${bZetOpWachtlijst}/` +
       `${bZetOpAanvraag}/` +
