@@ -68,11 +68,11 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
 
           {/* Button */}
           <button
-            onClick={() => {
-              const section = document.getElementById("contact");
-              section?.scrollIntoView({ behavior: "smooth" });
-            }}
-            // onClick={() => setOpen(true)}
+            // onClick={() => {
+            //   const section = document.getElementById("contact");
+            //   section?.scrollIntoView({ behavior: "smooth" });
+            // }}
+            onClick={() => setOpen(true)}
             className="mt-8 px-8 py-3 bg-primary text-white font-semibold rounded-md hover:bg-primary/80 transition-all duration-300 transform hover:scale-105 shadow-2xl"
           >
             {t("hero.table")}
@@ -86,8 +86,8 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       </div>
       {/* RESERVATION MODAL */}
       {open && (
-        <div className="fixed  inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
-          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10  shadow-2xl">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md">
+          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl">
             {/* CLOSE */}
             <button
               onClick={() => setOpen(false)}
@@ -97,11 +97,25 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
             </button>
 
             {/* IFRAME */}
-            <iframe
-              src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
-              className="h-[85vh] w-full"
-              style={{ border: "none" }}
-            />
+            <div className="flex justify-center">
+              <iframe
+                src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
+                className="h-[85vh] w-full max-w-4xl"
+                style={{ border: "none" }}
+              />
+            </div>
+
+            {/* CONTACT MESSAGE */}
+            <div className="flex items-center justify-center gap-1 px-4 py-3 text-center text-sm text-red-700">
+              <span>{t("reservation.contactReservation")}</span>
+
+              <a
+                href="tel:0743579155"
+                className="font-semibold underline hover:text-red-900"
+              >
+                0743579155
+              </a>
+            </div>
           </div>
         </div>
       )}

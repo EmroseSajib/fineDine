@@ -98,13 +98,13 @@ export function Navbar() {
             </div>
 
             {/* CTA */}
-            <a
-              href="#contact"
-              // onClick={() => setOpen(true)}
+            <button
+              // href="#contact"
+              onClick={() => setOpen(true)}
               className="rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-6 py-2.5 text-sm font-medium tracking-[0.15em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
             >
               {t("nav.reserve")}
-            </a>
+            </button>
           </div>
 
           {/* MOBILE BUTTON */}
@@ -178,21 +178,21 @@ export function Navbar() {
           </div>
 
           {/* CTA */}
-          <a
-            href="#contact"
-            onClick={() => setMobileOpen(false)}
-            // onClick={() => setOpen(true)}
+          <button
+            // href="#contact"
+            // onClick={() => setMobileOpen(false)}
+            onClick={() => setOpen(true)}
             className="mt-8 rounded-full border border-[#FFD700]/50 bg-[#FFD700]/10 px-8 py-3 text-sm font-semibold tracking-[0.2em] uppercase text-[#FFD700] transition-all duration-300 hover:bg-[#FFD700] hover:text-black"
           >
             {t("nav.reserve")}
-          </a>
+          </button>
         </div>
       </div>
 
       {/* RESERVATION MODAL */}
       {open && (
-        <div className="fixed  inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
-          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10  shadow-2xl">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md">
+          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl">
             {/* CLOSE */}
             <button
               onClick={() => setOpen(false)}
@@ -202,11 +202,25 @@ export function Navbar() {
             </button>
 
             {/* IFRAME */}
-            <iframe
-              src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
-              className="h-[85vh] w-full"
-              style={{ border: "none" }}
-            />
+            <div className="flex justify-center">
+              <iframe
+                src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
+                className="h-[85vh] w-full max-w-4xl"
+                style={{ border: "none" }}
+              />
+            </div>
+
+            {/* CONTACT MESSAGE */}
+            <div className="flex items-center justify-center gap-1 px-4 py-3 text-center text-sm text-red-700">
+              <span>{t("reservation.contactReservation")}</span>
+
+              <a
+                href="tel:0743579155"
+                className="font-semibold underline hover:text-red-900"
+              >
+                0743579155
+              </a>
+            </div>
           </div>
         </div>
       )}
