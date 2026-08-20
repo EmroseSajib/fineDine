@@ -86,8 +86,8 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
       </div>
       {/* RESERVATION MODAL */}
       {open && (
-        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md">
-          <div className="relative w-full max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-white shadow-2xl">
+        <div className="fixed  inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md px-4">
+          <div className="relative w-full max-w-5xl overflow-hidden  border border-white/10  shadow-2xl">
             {/* CLOSE */}
             <button
               onClick={() => setOpen(false)}
@@ -97,25 +97,20 @@ export default function Hero({ isLoaded }: HeroSectionProps) {
             </button>
 
             {/* IFRAME */}
-            <div className="flex justify-center">
+
+            <div className="flex justify-center ">
               <iframe
                 src="https://reserveereenvoudig.nl/tafelreservering?Company=6e0889dc3ea244c3bb87adacb5278f0e"
-                className="h-[85vh] w-full max-w-4xl"
+                className="h-[85vh] w-[25rem] max-w-full"
                 style={{ border: "none" }}
               />
             </div>
-
-            {/* CONTACT MESSAGE */}
-            <div className="flex items-center justify-center gap-1 px-4 py-3 text-center text-sm text-red-700">
-              <span>{t("reservation.contactReservation")}</span>
-
-              <a
-                href="tel:0743579155"
-                className="font-semibold underline hover:text-red-900"
-              >
+            <p className="mt-2 text-sm text-red-700 flex items-end justify-evenly">
+              {t("reservation.contactReservation")}
+              <a href="tel:0743579155" className="font-semibold underline">
                 0743579155
               </a>
-            </div>
+            </p>
           </div>
         </div>
       )}
