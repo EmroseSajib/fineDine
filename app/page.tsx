@@ -6,7 +6,6 @@ import Hero from "@/components/hero";
 import { Location } from "@/components/location";
 import { MenuSection } from "@/components/menu-section";
 import { Navbar } from "@/components/navbar";
-import { HolidayClosedPopup } from "@/components/notice/HolidayClosedPopup";
 import { OurStory } from "@/components/our-story";
 import { Reviews } from "@/components/reviews";
 import { useEffect, useState } from "react";
@@ -20,7 +19,7 @@ export default function Home() {
 
   return (
     <main>
-      <HolidayClosedPopup />
+      {/* <HolidayClosedPopup /> */}
       <Navbar />
       <Hero isLoaded={isLoaded} />
       <OurStory />
