@@ -9,6 +9,7 @@ const navLinks = [
   { key: "home", href: "#home" },
   { key: "about", href: "#about" },
   { key: "menu", href: "#menu" },
+  { key: "allergies", href: "#allergies" },
   { key: "gallery", href: "#gallery" },
   { key: "contact", href: "#location" },
 ];

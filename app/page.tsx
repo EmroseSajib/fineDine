@@ -1,5 +1,6 @@
 "use client";
 
+import { Allergies } from "@/components/allergy";
 import { Footer } from "@/components/footer";
 import { Gallery } from "@/components/gallery";
 import Hero from "@/components/hero";
@@ -24,6 +25,7 @@ export default function Home() {
       <Hero isLoaded={isLoaded} />
       <OurStory />
       <MenuSection />
+      <Allergies />
       {/* <ChefSpecials /> */}
       <Gallery />
       {/* <Reservation /> */}

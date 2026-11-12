@@ -4,6 +4,7 @@
       "home": "Home",
       "about": "Over Ons",
       "menu": "Menu",
+      "allergies": "Allergieën",
       "gallery": "Galerij",
       "contact": "Contact",
       "reserve": "Reserveer"
@@ -62,6 +63,13 @@
     "gallery": {
       "label": "Impressie",
       "title": "Galerij"
+    },
+
+    "allergies": {
+      "title": "Allergieën & Dieetwensen",
+      "paragraph1": "Het is niet mogelijk om het menu aan te passen bij allergieën voor knoflook, gember, ui, chilipeper of zuivel, noch bij zeer strikte dieetwensen, zoals een sterke beperking van suiker of zout, of een FODMAP-dieet.",
+      "paragraph2": "Aanpassingen aan het menu zijn wel mogelijk in geval van allergieën voor gluten, noten, schaal- en schelpdieren, vis of koolsoorten, evenals bij een lactose-intolerantie.",
+      "contact": "Neem voor meer informatie contact met ons op via telefoon of e-mail."
     },
     "reservation": {
       "label": "Reservering",
@@ -123,6 +131,7 @@
       "home": "Home",
       "about": "About",
       "menu": "Menu",
+      "allergies": "Allergies",
       "gallery": "Gallery",
       "contact": "Contact",
       "reserve": "Reserve"
@@ -174,6 +183,14 @@
         "drinks": "Drinks"
       }
     },
+
+    "allergies": {
+      "title": "Allergies & Dietary Requirements",
+      "paragraph1": "It is not possible to adapt the menu for allergies to garlic, ginger, onion, chilli pepper or dairy products, nor for very strict dietary requirements, such as a severe restriction of sugar or salt, or a FODMAP diet.",
+      "paragraph2": "Menu adjustments are possible for allergies to gluten, nuts, shellfish, fish or cabbage varieties, as well as for lactose intolerance.",
+      "contact": "For more information, please contact us by phone or email."
+    },
+
     "chefSpecial": {
       "label": "Exclusive",
       "title": "Chef's Specials"
