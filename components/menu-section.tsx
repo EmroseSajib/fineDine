@@ -25,7 +25,10 @@ interface ChristmasCourse {
 
 const christmasMenu = {
   title: { nl: "Kerstmenu 2026", en: "Christmas Menu 2026" },
-  dates: { nl: "24, 25 en 26 december", en: "24, 25 & 26 December" },
+  dates: {
+    nl: "24, 25 en 26 december (Alleen Kerstmenu)",
+    en: "24, 25 & 26 December (Only Christmas Menu)",
+  },
   subtitle: { nl: "Viergangen", en: "Four-Course" },
   price: "€ 89,50",
   courses: [
