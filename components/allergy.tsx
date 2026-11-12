@@ -37,10 +37,10 @@ export function Allergies() {
             <div className="h-px w-12 bg-[#C5A46D]/50" />
           </div>
 
-          <p className="mx-auto mt-7 max-w-xl text-sm leading-8 text-[#E7E0D4]/65 md:text-base">
+          {/* <p className="mx-auto mt-7 max-w-xl text-sm leading-8 text-[#E7E0D4]/65 md:text-base">
             Please let us know about your dietary requirements before your
             visit.
-          </p>
+          </p> */}
         </div>
 
         {/* Information panels */}
